@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('assets/fonts/Ubuntu-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 
 
@@ -29,7 +25,7 @@ a.link {
 }
 
 .nav {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
 }
 
@@ -63,7 +59,7 @@ a.link {
 }
 
 .section .title {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 33px;
     color: #2c5b6e;
@@ -90,7 +86,7 @@ a.link {
     background: #beffa8;
     border-radius: 2px;
     padding: 7px 3px;
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 14px;
 }
@@ -101,7 +97,7 @@ a.link {
 }
 
 .section .sub-title {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 23px;
     color: #2c5b6e;
@@ -109,7 +105,7 @@ a.link {
 }
 
 .section .table {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
 }
 
@@ -134,7 +130,7 @@ a.link {
     background: #fffca8;
     border-radius: 2px;
     padding: 7px 3px;
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 14px;
     margin-top: 0.9em;
@@ -142,7 +138,7 @@ a.link {
 }
 
 .section .list {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 14px;
     padding: 0 30px;
@@ -160,13 +156,13 @@ a.link {
     width: 100%;
     background: whitesmoke;
     text-align: center;
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 12px;
 }
 
 .resources-title {
-    font-family: "Ubuntu";
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 20px;
     color: #2c5b6e;
