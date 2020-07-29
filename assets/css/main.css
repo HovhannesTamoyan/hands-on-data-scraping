@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/Ubuntu-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+
+
+
+*,html,body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #f9f9f9;
+}
+
+ul li {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.link {
+    color: #ce9178;
+    padding: 5px 10px;
+}
+
+.nav {
+    font-family: "Ubuntu";
+    font-weight: 300;
+}
+
+.nav-container {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background: #ececec;
+    border-bottom: 1px solid #244a88;
+}
+
+
+.nav-item a {
+    padding: 21px;
+    color: #174a88;
+    font-size: 18px;
+    /* transition: 0.3s; */
+}
+
+.nav-item a:hover {
+    transition: 0.3s;
+    background: #174a88;
+    color: aliceblue;
+}
+
+.container {
+    margin: 0 auto;
+    width: 835px;
+    padding: 25px 0;
+}
+
+.section .title {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 33px;
+    color: #2c5b6e;
+    padding: 14px 10px 2px;
+}
+
+.section .txt {
+    font-family: Verdana,sans-serif;
+    line-height: 1.5;
+    margin-top: 0.9em;
+    margin-bottom: 0.9em;
+    font-size: 15px;
+}
+
+.section .code {
+    font-family: monospace;
+    background: #1e1e1e;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+
+.section .note {
+    background: #beffa8;
+    border-radius: 2px;
+    padding: 7px 3px;
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.section .note-keyword {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.section .sub-title {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 23px;
+    color: #2c5b6e;
+    padding: 7px 7px 2px;
+}
+
+.section .table {
+    font-family: "Ubuntu";
+    font-weight: 300;
+}
+
+.section .table table {
+    width: 100%;
+}
+
+.section .table thead {
+    font-weight: 400;
+}
+
+.section .table tr:nth-child(odd) {
+    background: #f1f1f1;
+}
+
+.section .table td {
+    padding: 13px 8px;
+    font-size: 15px;
+}
+
+.section .hint {
+    background: #fffca8;
+    border-radius: 2px;
+    padding: 7px 3px;
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 0.9em;
+    margin-bottom: 0.9em;
+}
+
+.section .list {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 14px;
+    padding: 0 30px;
+}
+
+.section .list .label {
+    color: #dc143c;
+    font-weight: 400;
+}
+
+
+.footer {
+    padding: 20px 0;
+    margin: 47px 0 0;
+    width: 100%;
+    background: whitesmoke;
+    text-align: center;
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.resources-title {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 20px;
+    color: #2c5b6e;
+    padding: 0px 0px 8px;
+}
+
+.resources .resources-list a {
+    display: block;
+    padding: 2px 12px;
+}
+
+
+
+
+*::-moz-selection { 
+    background: #ffc9d4; 
+}
+
+*::selection { 
+    background: #ffc9d4; 
+}
+
+.section .code *::-moz-selection { 
+    background: #cde9ff38; 
+}
+
+.section .code *::selection { 
+    background: #cde9ff38; 
+}
+
+
+.section .list p span::-moz-selection, .resources .resources-list a::-moz-selection { 
+    background: #b0dbff; 
+}
+
+.section .list p span::selection, .resources .resources-list a::selection { 
+    background: #b0dbff; 
+}
+
+
