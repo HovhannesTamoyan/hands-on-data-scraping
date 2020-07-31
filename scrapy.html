@@ -8,7 +8,7 @@
 
     <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/code.css">
+    <link rel="stylesheet" href="assets/css/ ">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
             <div class="sub-title">Scrapy-package</div>
 
             <div class="txt">
-                Let’s import the packages we will be using:
+                Let’s import the packages <sup class="ref" src="https://docs.scrapy.org/en/latest/topics/request-response.html"></sup> we will be using:
             </div>
 
             <pre><code class="language-py">from scrapy.http import TextResponse
@@ -81,7 +81,7 @@ open_hours = response.xpath("//span[@class='new_list_time_block_inner']/text()")
             </div>
 
             <div class="txt">
-                After which we can store all this information in a “DataFrame”:
+                After which we can store all this information in a “DataFrame” <sup class="ref" src="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"></sup>:
             </div>
 
             <pre><code class="language-py">df = pd.DataFrame({
@@ -162,11 +162,13 @@ open_hours = response.xpath("//span[@class='new_list_time_block_inner']/text()")
             </div>
 
 
+
+
             <div class="sub-title">Scrapy-framework</div>
 
             <div class="txt">
-                Framework version of “Scrapy” provides a scalable built in structure for complex projects. One of the
-                key components is “Spider”. “Spider” is a class responsible for defining how to follow the links through
+                Framework version of “Scrapy” <sup class="ref" src="https://docs.scrapy.org/en/latest/intro/tutorial.html"></sup> provides a scalable built in structure for complex projects. One of the
+                key components is “Spider” <sup class="ref" src="https://docs.scrapy.org/en/latest/topics/spiders.html"></sup>. “Spider” is a class responsible for defining how to follow the links through
                 a website and extract the information from the pages. The default spiders of Scrapy are as follows:
             </div>
 
@@ -316,11 +318,8 @@ process.start()
 
             <div class="txt">
                 The possibilities of pipelines are huge, for example we can take a screenshot of a url on which the
-                process will be working on, we can insert current data into a DB. For more examples please check out the
-                link:
+                process will be working on, we can insert current data into a DB. For more examples <sup class="ref" src="https://docs.scrapy.org/en/latest/topics/item-pipeline.html"></sup>
             </div>
-
-            <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html" target="_blank" class="link">https://docs.scrapy.org/en/latest/topics/item-pipeline.html</a>
 
             
 
@@ -333,8 +332,8 @@ process.start()
     <div class="container">
         <div class="resources">
             <div class="resources-title">Resources</div>
-            <div class="resources-list">
-                <a target="_blank" href="#" class="link">link</a>
+            <div id="resource-items" class="resources-list">
+                <!-- generates -->
             </div>
         </div>
     </div>

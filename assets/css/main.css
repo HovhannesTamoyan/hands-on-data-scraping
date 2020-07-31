@@ -174,9 +174,16 @@ a.link {
     padding: 0px 0px 8px;
 }
 
-.resources .resources-list a {
-    display: block;
-    padding: 2px 12px;
+.resources .resources-list div {
+    /* display: block; */
+    padding: 2px 0px 2px 25px;
+}
+
+.resources .resources-index {
+    color: #8a5f4d;
+    padding-right: 9px;
+    font-size: 15px;
+    font-family: Arial;
 }
 
 .section .welcome-title {

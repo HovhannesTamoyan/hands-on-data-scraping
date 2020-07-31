@@ -8,7 +8,7 @@
 
     <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/code.css">
+    <link rel="stylesheet" href="assets/css/ ">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             <div class="txt">
                 Now when you are familiar with HTML and CSS which give the structure and the design of a webpage it’s
                 time to get into the scripting language called JavaScript by which we will add logic to our webpage and
-                give dynamics to it. JavaScript (from now on JS) is the programming language of HTML and the Web. You
+                give dynamics to it. JavaScript <sup class="ref" src="https://developer.mozilla.org/en-US/docs/Web/JavaScript"></sup> <sup class="ref" src="https://www.youtube.com/watch?v=W6NZfCO5SIk&t=6s"></sup> <sup class="ref" src="https://www.youtube.com/watch?v=hdI2bqOjy3c"></sup> (from now on JS) is the programming language of HTML and the Web. You
                 can write it down in one of the code editors mentioned earlier and connect it to your HTML “code” by the
                 following ways.
             </div>
@@ -148,11 +148,11 @@ console.log("Hello world, this is the " + y + "nd time I am using console");</co
             </div>
 
 
-            <div class="sub-title">Operations</div>
+            <div class="sub-title">Operators</div>
 
             <div class="txt">
                 We can do arithmetic operations with variables just like in math. Below are listed different types of
-                operations you might need to know:
+                operations <sup class="ref" src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"></sup> you might need to know:
             </div>
 
 
@@ -384,7 +384,7 @@ console.log("Hello world, this is the " + y + "nd time I am using console");</co
 
             <div class="txt">
                 As it’s been already mentioned above we can store information in multiple forms or as we call it here
-                data types. Here are some examples:
+                data types <sup class="ref" src="https://www.tutorialrepublic.com/javascript-tutorial/javascript-data-types.php"></sup>. Here are some examples:
             </div>
 
 
@@ -398,7 +398,7 @@ var x = {firstName:"John", lastName:"Doe"};    // Object</code></pre>
             <div class="sub-title">Functions</div>
 
             <div class="txt">
-                Now let’s get into the functions. Functions mostly are the same here as in math. The idea is that you
+                Now let’s get into the functions <sup class="ref" src="https://www.w3schools.com/js/js_function_definition.asp"></sup>. Functions mostly are the same here as in math. The idea is that you
                 give some input(s) some things happen inside of it and then you get an output. While in programming a
                 function can take no inputs and it can return more than one value. To define your first function do the
                 following:
@@ -464,7 +464,7 @@ console.log(the_message);</code></pre>
             <div class="sub-title">Loops</div>
 
             <div class="txt">
-                To periodically perform an action or actions we can use something called loop. Loops are handy, if you
+                To periodically perform an action or actions we can use something called loop <sup class="ref" src="https://www.w3schools.com/js/js_loop_for.asp"></sup>. Loops are handy, if you
                 want to run the same code over and over again, each time with a different value. Often this is the case
                 when working with arrays:
             </div>
@@ -511,7 +511,7 @@ console.log(text);</code></pre>
 
             <div class="txt">
                 Now, comes the most interesting part from Data Scraping perspective. It turns out that with the help of
-                JS we can modify the HTML of a webpage on fly. It turns out that JS sees a html page as a DOM (Document
+                JS we can modify the HTML of a webpage on fly. It turns out that JS sees a html page as a DOM <sup class="ref" src="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"></sup> (Document
                 Object Model) object which can be modified by it .Why would we or a web page developer ever need to do
                 this, to load data based on a user's needs, to make the webpage load faster and be agile, and maybe to
                 put in some design flavours. Let us look at a very basic example to see how we can add HTML into our
@@ -546,7 +546,7 @@ function myTimer() {
 
             <div class="txt">
                 HTML events are "things" that happen to HTML elements. When JS is used in HTML pages, it can "react" to
-                these events. For instance an HTML web page has finished loading, an HTML input field was changed, an
+                these events <sup class="ref" src="https://www.w3schools.com/js/js_events.asp"></sup>. For instance an HTML web page has finished loading, an HTML input field was changed, an
                 HTML button was clicked and so on.
             </div>
 
@@ -622,7 +622,7 @@ function displayGreet() {
             <div class="sub-title">AJAX</div>
 
             <div class="txt">
-                Another way of changing the DOM dynamically is to use AJAX. AJAX is a technique by which we can get data
+                Another way of changing the DOM dynamically is to use AJAX <sup class="ref" src="https://www.w3schools.com/js/js_ajax_http_send.as"></sup>. AJAX is a technique by which we can get data
                 from a web server for our webpage.
             </div>
 
@@ -673,14 +673,14 @@ function loadDoc() {
 
             <div class="txt">
                 Here we assign a click event to the button we created and give the function name to it. In the function
-                we create a new object from “XMLHttpRequest” “class”, and then call the method “onreadystatechange”. In
+                we create a new object from “XMLHttpRequest” <sup class="ref" src="https://www.w3schools.com/js/js_events.asp"></sup> “class”, and then call the method “onreadystatechange”. In
                 it we check if the state of the response is done (4) and status is ok (200), so we assign the content of
                 the response to the element with id “demo”, after this we give the parameters to “open” method, the
                 method of request, url. And in the end we call the “send” method.
             </div>
 
             <div class="note">
-                <span class="note-keyword">Note</span>: JS is an asynchronous programming language, this is what makes
+                <span class="note-keyword">Note</span>: JS is an asynchronous programming language <sup class="ref" src="https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff"></sup>, this is what makes
                 it different from most of the programming languages such as Python. Asynchronous means that once an
                 action starts, the computer is not waiting for that action to finish, but it continues and fires the
                 next action and so on. While in Python actions are run one after the other, in the order they are
@@ -704,17 +704,8 @@ function loadDoc() {
     <div class="container">
         <div class="resources">
             <div class="resources-title">Resources</div>
-            <div class="resources-list">
-                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                    class="link">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>
-                <a target="_blank" href="https://www.w3schools.com/js/" class="link">https://www.w3schools.com/js/</a>
-                <a target="_blank" href="https://www.youtube.com/watch?v=W6NZfCO5SIk&t=6s"
-                    class="link">https://www.youtube.com/watch?v=W6NZfCO5SIk&t=6s</a>
-                <a target="_blank" href="https://www.youtube.com/watch?v=hdI2bqOjy3c"
-                    class="link">https://www.youtube.com/watch?v=hdI2bqOjy3c</a>
-                <a target="_blank" href="https://www.w3schools.com/js/js_ajax_http_send.as"
-                    class="link">https://www.w3schools.com/js/js_ajax_http_send.as</a>
-
+            <div id="resource-items" class="resources-list">
+                <!-- generates -->
             </div>
         </div>
     </div>

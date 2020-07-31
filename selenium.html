@@ -8,7 +8,7 @@
 
         <link href="assets/css/prism.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/code.css">
+    <link rel="stylesheet" href="assets/css/ ">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 
             <div class="txt">
                 With this motivation let us get into it and install the package and drivers needed. You can find a
-                simple guide listed in resources:
+                simple guide here <sup class="ref" src="https://selenium-python.readthedocs.io/installation.html"></sup>:
             </div>
 
 
@@ -65,7 +65,7 @@ browser.get('https://buy.am/en/carrefour/ready-meals/')</code></pre>
 
 
             <div class="txt">
-                First we import the webdriver from selenium, then we define browser variable which is a Chrome
+                First we import the webdriver from selenium <sup class="ref" src="https://selenium-python.readthedocs.io/getting-started.html"></sup>, then we define browser variable which is a Chrome
                 webdriver, so it will be using Chrome as your browsers, and then we give the url of “buy.am” to
                 navigate. Seems scary, doesn’t it.
             </div>
@@ -158,17 +158,13 @@ for name, price in zip(names, prices):
 
         </div>
     </div>
+    
 
     <div class="container">
         <div class="resources">
             <div class="resources-title">Resources</div>
-            <div class="resources-list">
-                <a target="_blank" href="https://selenium-python.readthedocs.io/installation.html"
-                    class="link">https://selenium-python.readthedocs.io/installation.html</a>
-                <a target="_blank" href="https://selenium-python.readthedocs.io/"
-                    class="link">https://selenium-python.readthedocs.io/</a>
-                <a target="_blank" href="https://selenium-python.readthedocs.io/getting-started.html"
-                    class="link">https://selenium-python.readthedocs.io/getting-started.html</a>
+            <div id="resource-items" class="resources-list">
+                <!-- generates -->
             </div>
         </div>
     </div>
