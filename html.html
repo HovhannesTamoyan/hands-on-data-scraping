@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/code1.css">
 </head>
 
 <body>
 
     <div class="nav">
-        <ul class="nav-container">
-            <li class="nav-item"><a href="index.html">Intorduction</a></li>
+        <ul id="nav-container" class="nav-container">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="introduction.html">Intorduction</a></li>
+            <li class="nav-item"><a href="tools.html">Tools</a></li>
             <li class="nav-item"><a href="html.html">HTML</a></li>
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
+            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
         </ul>
     </div>
+
 
     <div class="container">
         <div class="section">
@@ -36,26 +40,18 @@
             </div>
 
             <div class="list">
-                <p><span class="value">How does the website work?</span></p>
-                <p><span class="value">How is a website created?</span></p>
-                <p><span class="value">How to read website data?</span></p>
+                <p><span class="label">How does the website work?</span></p>
+                <p><span class="label">How is a website created?</span></p>
+                <p><span class="label">How to read website data?</span></p>
             </div>
 
             <div class="txt">
                 To find out the answers of these questions you will need to understand what is Hyper Text Markup
-                Language (HTML).
-            </div>
-
-            <div class="txt">
-                HTML is the standard markup language for creating Web pages, describing the structure of a Web page. So
-                where to write an HTML.
-            </div>
-
-            <div class="txt">
-                There are a lot of code editors and almost all of them can be used for editing an HTML document. The
-                most common ones are Sublime Text and Notepad, read
-                more(<a href="https://www.hostinger.com/tutorials/best-html-editors"
-                    class="link">https://www.hostinger.com/tutorials/best-html-editors</a>).
+                Language (HTML). HTML is the standard markup language for creating Web pages, describing the structure
+                of a Web page. So
+                where to write an HTML. There are a lot of code editors and almost all of them can be used for editing
+                an HTML document. The
+                most common ones are Sublime Text and Notepad, check out the resources.
             </div>
 
             <div class="txt">
@@ -63,71 +59,297 @@
                 HTML element is defined by a start tag, some content, and an end tag.
             </div>
 
-            <div class="code">
-                <p class="c7"><span class="c3">&lt;</span><span class="c5">tagname</span><span
-                        class="c3">&gt;</span><span class="c14">Content</span><span class="c3">&lt;/</span><span
-                        class="c5">tagname</span><span class="c3 c13">&gt;</span></p>
-            </div>
+            <!-- &lt; -->
+            <!-- &gt; -->
+
+            <pre><code class="language-html">&lt;tagname&gt;Content&lt;/tagname&gt;</code></pre>
 
             <div class="txt">
                 A tag with a forward slash (/) is an end tag.
             </div>
 
             <div class="note">
-                <span class="note-keyword">Note</span>: Some HTML elements have no content. Like the element The HTML element produces a line
-                break in text. These sort of elements are called empty elements. Empty elements do not have an end tag!
+                <span class="note-keyword">Note</span>: Some HTML elements have no content. Like the element The
+                HTML element produces a line break in text. These sort of elements are called empty elements. Empty
+                elements do not have an end tag!
             </div>
 
-
-            <div class="hint">
+            <div class="txt">
                 As human beings, websites have a head and a body.
             </div>
 
-            <div class="list">
-                The <head> element contains meta information about the HTML page
-                The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
-                The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
-                The <h1> element defines a large heading
-                The <p> element defines a paragraph
-            </div>
 
             <div class="list">
-                <p><span class="label"><&nbsp;head></span><span class="value"> - loops through a block of code a number of
-                        times</span></p>
-                <p><span class="label">for/in</span><span class="value"> - loops through the properties of an
-                        object</span></p>
-                <p><span class="label">for/of</span><span class="value"> - loops through the values of an iterable
-                        object</span></p>
-                <p><span class="label">while</span><span class="value"> - loops through a block of code while a
-                        specified condition is true</span></p>
-                <p><span class="label">do/while</span><span class="value"> - also loops through a block of code while a
-                        specified condition is true</span></p>
+                <p>The <span class="label">&lt;head&gt;</span><span class="value"> - element contains meta information
+                        about the HTML page</span></p>
+                <p><span class="label">The &lt;title&gt;</span><span class="value"> - element specifies a title for the
+                        HTML page (which is shown in the browser's title bar or in the page's tab)</span></p>
+                <p><span class="label">The &lt;body&gt;</span><span class="value"> - element defines the document's
+                        body, and is a container for all the visible contents, such as headings, paragraphs, images,
+                        hyperlinks, tables, lists, etc.</span></p>
+                <p><span class="label">The &lt;h1&gt;</span><span class="value"> - element defines a large
+                        heading</span></p>
+                <p><span class="label">The &lt;p&gt;</span><span class="value"> - element defines a paragraph</span></p>
+            </div>
+
+            <div class="sub-title">Your first Webpage</div>
+
+            <div class="txt">
+                As you already know the basic HTML elements, we can create your first website. Let’s make it about the
+                famous TV show Money heist.
+            </div>
+
+            <div class="txt">
+                The first step will be a document type declaration. Next step is to open &lt;html&gt; and
+                &lt;head&gt; elements. In the &lt;head&gt; element you should write your page’s &lt;title&gt;, which
+                will appear in the browser's
+                title bar. Before closing the &lt;head&gt; you should add “style” for your website. We will discuss the
+                “style” in the CSS section.
+            </div>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;Money Heist website&lt;/title&gt;
+            &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+        &lt;/head&gt;</code></pre>
+
+
+            <div class="txt">
+                Now we can close the &lt;head&gt; and move forward with creating the &lt;body&gt; of the website. Using
+                &lt;h1&gt; elements we will give the first heading. Firstly, we will give an element “class” title. HTML
+                headings are defined with the &lt;h1&gt; to &lt;h6&gt; tags. &lt;h1&gt; defines the
+                most important heading. &lt;h6&gt; defines the least important heading. Search engines use the headings
+                to index the structure and content of your web pages. Users often skim a page by its headings. It is
+                important to use headings to show the document structure.
             </div>
 
 
-            <div class="code">
-                <p class="c26"><span class="c3">&lt;!</span><span class="c5">DOCTYPE</span><span
-                        class="c14">&nbsp;</span><span class="c28">html</span><span class="c3 c13">&gt;</span></p>
-                <p class="c26"><span class="c3">&lt;</span><span class="c5">html</span><span class="c3 c13">&gt;</span>
-                </p>
-                <p class="c26"><span class="c14">&nbsp; &nbsp;</span><span class="c3">&lt;</span><span
-                        class="c5">head</span><span class="c3 c13">&gt;</span></p>
-                <p class="c26"><span class="c14">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="c3">&lt;</span><span
-                        class="c5">title</span><span class="c3">&gt;</span><span class="c14">Money Heist
-                        website</span><span class="c3">&lt;/</span><span class="c5">title</span><span
-                        class="c3 c13">&gt;</span></p>
-                <p class="c26"><span class="c14">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="c3">&lt;</span><span
-                        class="c5">link</span><span class="c14">&nbsp;</span><span class="c28">rel</span><span
-                        class="c14">=</span><span class="c40">&quot;stylesheet&quot;</span><span
-                        class="c14">&nbsp;</span><span class="c28">type</span><span class="c14">=</span><span
-                        class="c40">&quot;text/css&quot;</span><span class="c14">&nbsp;</span><span
-                        class="c28">href</span><span class="c14">=</span><span
-                        class="c40">&quot;style.css&quot;</span><span class="c3 c13">&gt;</span></p>
-                <p class="c26"><span class="c14">&nbsp; &nbsp;</span><span class="c3">&lt;/</span><span
-                        class="c5">head</span><span class="c3">&gt;</span></p>
+            <div class="note">
+                <span class="note-keyword">Note</span>: Use HTML headings for headings only. Don't use headings to make
+                text BIG or bold.
+            </div>
+
+            <div class="txt">
+                Let’s do something difficult but at the same time interesting and useful. Inside of the &lt;h1&gt;
+                element, let’s add new elements too. If we add an <a> element, which has an href attribute, then it
+                    represents a hyperlink (a hypertext anchor) labeled by its contents. href Contains a URL or a URL
+                    fragment that the hyperlink points to.
             </div>
 
 
+            <pre><code class="language-html">&lt;body&gt;
+    &lt;h1 class="title"&gt; Money Heist &lt;a href="https://www.netflix.com/am/title/80192098"&gt; Netflix &lt;/a&gt;&lt;/h1&gt;</code></pre>
+
+            <div class="txt">
+                The HTML &lt;p&gt; element defines a paragraph. A paragraph always starts on a new line, and browsers
+                automatically add some white space (a margin) before and after a paragraph.
+            </div>
+
+            <div class="txt">
+                The &lt;hr&gt; element is used to separate content (or define a change) in an HTML page.The &lt;hr&gt;
+                tag is an empty tag, which means that it has no end tag.
+            </div>
+
+            <div class="txt">
+                An &lt;img&gt; element represents an image. The src attribute is mandatory for the &lt;img&gt; element.
+                On browsers supporting srcset, src is treated like a candidate image with a pixel density descriptor 1x
+                unless an image with this pixel density descriptor is already defined in srcset, or unless srcset
+                contains 'w' descriptors. Height/ Width attribute is the intrinsic height / width of the image in
+                pixels. The alt attribute defines an alternative text description of the image.
+            </div>
+
+            <pre><code class="language-html">&lt;img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9d3db670488871.5ba4ef95d3c9d.jpg" height="70%" width="50%" alt="poor internet connection"&gt;
+&lt;p&gt; Money Heist (Spanish: La casa de papel, "The House of Paper") is a Spanish heist crime drama television series created by Alex Pina &lt;/p&gt;</code></pre>
+
+            <div class="txt">
+                The &lt;div&gt; element has no special meaning at all. It represents its children. It can be used with
+                the class, lang, and title attributes to mark up semantics common to a group of consecutive elements.
+                The &lt;div&gt; tag defines a division or a section in an HTML document.The &lt;div&gt; tag is used as a
+                container for HTML elements - which is then styled with CSS or manipulated with JavaScript. The
+                &lt;div&gt; tag is easily styled by using the class or id attribute.
+            </div>
+
+            <pre><code class="language-html">&lt;div id="modifiable"&gt;this content will be modified later&lt;/div&gt;</code></pre>
+
+
+            <div class="txt">
+                We can give our division a ‘’list’’ class. A space-separated list of the classes of the element. Classes
+                allows
+                CSS and JavaScript to select and access specific elements via the class selectors or functions like the
+                method
+                document.getElementsByClassName(). The &lt;ul&gt; element represents a list of items, where the order of
+                the items is
+                not important — that is, where changing the order would not materially change the meaning of the
+                document.
+            </div>
+
+
+            <div class="txt">
+                The &lt;li&gt; element represents a list item. If its parent element is an ol, ul, or menu element, then
+                the
+                element is an item of the parent element's list, as defined for those elements. Otherwise, the list
+                item has no defined list-related relationship to any other li element.
+            </div>
+
+            <pre><code class="language-html">&lt;div class="list"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;The Professor: Unarguably the smartest person in the room, The Professor is the main brain of the heist.&lt;/li&gt;
+        &lt;img src="https://filmdaily.co/wp-content/uploads/2020/04/money-heist-professor-lede.jpg" height="40%" width="20%"&gt;
+        &lt;li&gt;Berlin: The second-in-charge of the heist in the robbery at Royal Mint, Berlin. He knows all the steps to the heist plan, including plans that aren’t mentioned to the team.&lt;/li&gt;
+        &lt;img src="https://moneyheistseason4.com/wp-content/uploads/2020/01/Berlin.jpg" height="40%" width="20%"&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="txt">
+                An HTML table consists of one &lt;table&gt; element and one or more &lt;tr&gt;, &lt;th&gt;, and
+                &lt;td&gt; elements.
+            </div>
+
+
+            <div class="txt">
+                The &lt;table&gt; element represents data with more than one dimension, in the form of a table. The
+                &lt;tr&gt; element represents a row of cells in a table. The &lt;th&gt; element represents a header cell
+                in a table.The &lt;td&gt; element represents a data cell in a table.
+            </div>
+
+            <pre><code class="language-html">&lt;p&gt; Here is the table where are listed The Seasons and corresponding number of episodes &lt;/p&gt;
+    &lt;table height="20%" width="20%"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Season&lt;/th&gt;
+            &lt;th&gt;Number of episodes &lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Season 1&lt;/td&gt;
+            &lt;td&gt;13 episodes&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Season 2&lt;/td&gt;
+            &lt;td&gt;9 episodes&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;</code></pre>
+
+
+            <div class="txt">
+                One dynamic element is &lt;button&gt;. The HTML &lt;button&gt; element represents a clickable button,
+                used to submit
+                forms or anywhere in a document for accessible, standard button functionality.
+            </div>
+
+
+            <pre><code class="language-html">&lt;button id="greedy_action"&gt;Click me&lt;/button&gt;</code></pre>
+
+            <div class="txt">
+                By default, HTML buttons are presented in a style resembling the platform the user agent runs on, but
+                you can change buttons’ appearance with CSS.
+            </div>
+
+            <pre><code class="language-html">        &lt;p&gt; If you want to see the latest updates and pictures of the characters, please click on the button below&lt;/p&gt;
+        &lt;button class="button" onclick="window.location.href='https://www.instagram.com/lacasadepapel/?hl=en';"&gt;Instagram&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+            <div class="sub-title">Attributes</div>
+
+            <div class="txt">
+                We have seen few HTML tags and their usage like heading tags &lt;h1&gt;, &lt;h2&gt;, paragraph tag
+                &lt;p&gt; and other tags. We used them so far in their simplest form, but most of the HTML tags can also
+                have attributes, which are extra bits of information.
+            </div>
+
+            <div class="txt">
+                An attribute is used to define the characteristics of an HTML element and is placed inside the element's
+                opening tag. All attributes are made up of two parts − a name and a value. Attribute names and attribute
+                values are case-insensitive. However, the World Wide Web Consortium (W3C) recommends lowercase
+                attributes/attribute values.
+            </div>
+
+            <div class="txt">
+                The four core attributes that can be used on the majority of HTML elements are:
+            </div>
+
+            <div class="list">
+                <p><span class="label">id</span></p>
+                <p><span class="label">title</span></p>
+                <p><span class="label">class</span></p>
+                <p><span class="label">style</span></p>
+            </div>
+
+            <div class="txt">
+                The id attribute of an HTML tag can be used to uniquely identify any element within an HTML page. There
+                are two primary reasons that you might want to use an id attribute on an element:
+            </div>
+
+            <div class="list">
+                <p><span class="value">If an element carries an id attribute as a unique identifier, it is possible to
+                        identify just that element and its content.</span></p>
+                <p><span class="value">If you have two elements of the same name within a Web page (or style sheet), you
+                        can use the id attribute to distinguish between elements that have the same name.</span></p>
+            </div>
+
+            <div class="txt">
+                The title attribute gives a suggested title for the element. The syntax for the title attribute is
+                similar as explained for id attribute.
+            </div>
+
+            <div class="txt">
+                The class attribute is used to associate an element with a style sheet, and specifies the class of
+                element. You will learn more about the use of the class attribute when you will learn Cascading Style
+                Sheet (CSS).The value of the attribute may also be a space-separated list of class names. The style
+                attribute allows you to specify CSS rules within the element.
+            </div>
+
+
+            <div class="sub-title">XPath</div>
+
+            <div class="txt">
+                XPaths have a very big spectrum of usage, but for us the interesting part is related to HTML. XPath can
+                be used to navigate through elements and attributes in an XML (HTML is a type of XML) document. As we
+                will later on see how elements are located with the help of CSS Selectors to give them styling, from
+                that point we will have two powerful locating techniques.
+            </div>
+
+            <div class="txt">
+                XPaths are similar to the paths that we have in urls or in our operating systems, so it’s a sequence of
+                elements which give direction to our desired element. Now go to a random webpage open Inspect->Elements
+                point your mouse on a random element and press Right-Click->Copy->Copy full XPath. And paste somewhere
+                to see that path. You will see that it starts with a html tag followed by body or head and so on till it
+                reaches to the element you chose. There you can see the “Copy XPath” option also, the difference is that
+                the full starts from the main tag while the regular locates a unique element without going so down in
+                the HTML hierarchy. You might have noticed that the full path starts with double slashed “//” while the
+                regular one with one slash “/”, here is the difference. Let’s look at some notations:
+            </div>
+
+            <div class="list">
+                <p><span class="label">nodename</span><span class="value"> - selects all nodes with the name
+                        "nodename"</span></p>
+                <p><span class="label">/</span><span class="value"> - selects from the root node</span></p>
+                <p><span class="label">//</span><span class="value"> - selects nodes in the document from the current
+                        node that match the selection no matter where they are</span></p>
+                <p><span class="label">.</span><span class="value"> - selects the current node</span></p>
+                <p><span class="label">..</span><span class="value"> - selects the parent of the current node</span></p>
+                <p><span class="label">@</span><span class="value"> - selects attributes</span></p>
+            </div>
+
+            <div class="txt">
+                Let us locate the second li tag in our HTML which starts with “Berlin ...”
+            </div>
+
+            <pre><code class="language-css">//div[@class="list"]/ul/li[position()=2]</code></pre>
+
+            <div class="txt">or</div>
+
+            <pre><code class="language-css">/html/body/div[@class="list"]//li[position()=2]</code></pre>
+
+            <div class="txt">
+                As you can see there are multiple ways of accessing the target element. We can even check weather or not
+                the element we want to get contains a string, like this:
+            </div>
+
+            <pre><code class="language-css">//button[@class="button" and contains(text(), "Insta")]</code></pre>
+
+            <div class="txt">More practically on where and when to use XPath will be presented in the Scrapy section.</div>
 
         </div>
     </div>
@@ -137,14 +359,20 @@
         <div class="resources">
             <div class="resources-title">Resources</div>
             <div class="resources-list">
-                <a target="_blank" href="#" class="link">link</a>
+                <a target="_blank" href="https://www.hostinger.com/tutorials/best-html-editors"
+                    class="link">https://www.hostinger.com/tutorials/best-html-editors</a>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan
+        Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
+
+
+    <script src="assets/js/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 

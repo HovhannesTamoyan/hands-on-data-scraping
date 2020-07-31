@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
-#070b20
-#dee2f0
+/* #070b20
+#dee2f0 */
 
 
 *,html,body {
@@ -35,22 +35,26 @@ a.link {
     display: block;
     text-align: center;
     width: 100%;
-    padding: 20px 0;
-    background: #ececec;
+    padding: 12px 0;
+    background: #dee2f0;
     border-bottom: 1px solid #244a88;
 }
 
 
 .nav-item a {
-    padding: 21px;
+    padding: 13px;
     color: #174a88;
     font-size: 18px;
-    /* transition: 0.3s; */
 }
 
 .nav-item a:hover {
     transition: 0.3s;
     background: #174a88;
+    color: aliceblue;
+}
+
+.nav-item.active a {
+    background: #1e589e;
     color: aliceblue;
 }
 
@@ -76,11 +80,9 @@ a.link {
     font-size: 15px;
 }
 
-.section .code {
-    font-family: monospace;
+.section pre[class*="language-"] {
     background: #1e1e1e;
     border-radius: 4px;
-    padding: 10px;
 }
 
 
@@ -103,7 +105,7 @@ a.link {
     font-weight: 300;
     font-size: 23px;
     color: #2c5b6e;
-    padding: 7px 7px 2px;
+    padding: 14px 7px 2px;
 }
 
 .section .table {
@@ -176,22 +178,54 @@ a.link {
     padding: 2px 12px;
 }
 
+.section .welcome-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 500;
+}
 
+.section .welcome-subtitle {
+    text-align: center;
+    font-size: 20px;
+    padding: 3px 0 0;
+}
+
+.section .get-started {
+    text-align: center;
+    margin: 12px 0 2px;
+    font-size: 30px;
+}
+
+.section .get-started-link {
+    text-align: center;
+    display: block;
+    font-size: 21px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section .welcome-txt {
+    text-align: center;
+    font-size: 13px;
+    color: #31383a;
+    margin: 5px 0 32px;
+}
 
 
 *::-moz-selection { 
-    background: #ffc9d4; 
+    background: #2c5b6e;
+    color: #dee2f0; 
 }
 
 *::selection { 
-    background: #ffc9d4; 
+    background: #2c5b6e;
+    color: #dee2f0; 
 }
 
-.section .code *::-moz-selection { 
+.section pre[class*="language-"] *::-moz-selection { 
     background: #cde9ff38; 
 }
 
-.section .code *::selection { 
+.section pre[class*="language-"] *::selection { 
     background: #cde9ff38; 
 }
 
@@ -205,3 +239,37 @@ a.link {
 }
 
 
+
+
+
+
+
+
+
+code[class*="language-"], pre[class*="language-"] {
+    line-height: 1.2;
+    font-size: 0.96em;
+}
+
+pre[class*="language-"] {
+    padding: 0.7em 1em;
+}
+
+
+pre[class*="language-"]::-webkit-scrollbar              {
+        border-radius: 10px;
+        height: 3px;
+        background: #e2777a;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track        {
+        border-radius: 10px;
+        height: 3px;
+        background: #1e1e1e;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb        {
+        border-radius: 10px;
+        height: 3px;
+        background: #e2777a;
+}
