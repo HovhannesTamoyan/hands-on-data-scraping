@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
-        <link href="assets/css/prism.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/code.css">
 </head>
@@ -22,15 +22,341 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
     <div class="container">
         <div class="section">
             <div class="title">Python (advanced)</div>
+
+            <div class="sub-title">
+                OOP (Object oriented programming)
+            </div>
+
+            <div class="txt">
+                In this subsection we will briefly cover a huge topic such as OOP. OOP is a way of programming where
+                things are considered as objects, to have collective things. For example let’s say we want to have an
+                object called “Person”, which has multiple attributes/properties, such as name, height, favorite drink
+                and so on, and actions/method for example greeting, walking, drinking. This is what it will look like:
+            </div>
+
+            <pre><code class="language-py">class Person:
+    steps = 0
+
+    def __init__(self, name, height, fav_drink):
+        self.name = name
+        self.height = height
+        self.fav_drink = fav_drink
+
+    def greet(self):
+        return "Hi, my name is " + self.name + ", my height is " + self.height
+
+    def drink(self):
+        return "Drinking " + self.fav_drink + "..."
+
+    def walk(self):
+        self.steps += 1
+        return "I did " + self.steps + "steps"</code></pre>
+
+
+            <div class="txt">
+                To define a “class” we use the keyword “class” after which comes the name of the class (preferably
+                Capitalized). Every variable defined inside of the class (not inside of the method unless “self” keyword
+                is not used) will be called property. Here we define the “steps” variable and assign it 0 value.
+            </div>
+
+            <div class="txt">
+                Every class in Python has a default constructor called “__init__”, this is the function that gets called
+                automatically whenever the class starts to exist (the object is instantiated).
+                Every method takes a “self” parameter except the parameters you will want it to have.
+                In the “__init__” method we assign the values of the variables got as arguments to properties.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: “self.name” is property, thus belongs to the class while “name”
+                is just an argument which will be removed once the method finishes it’s job.
+            </div>
+
+            <div class="txt">
+                Then we define a few methods, where two of them return simple strings by using the properties with the
+                “self” keyword, and the third one increments the property by one.
+            </div>
+
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: Method is just a function, property is just a variable, but as
+                they are inside of a class they are called so.
+            </div>
+
+            <div class="txt">
+                To run and use this “class” we need to instantiate it. In other words we need to create an
+                instance/object of it, here is the idea. So there are multiple people and you might want to create as
+                many “People” as you want, thus with the help of a class we give some description to the idea of person,
+                and then we can use it to have multiple people(objects).
+            </div>
+
+            <div class="txt">
+                So “class” is a blueprint and “object” is a thing which is built by that blueprint.
+            </div>
+
+            <pre><code class="language-py">person = Person("Pedro", 185, "coffee")
+person.fav_drink
+person.greet()
+</code></pre>
+
+            <div class="txt">
+                Here we create an “object” from “Person” “class” by passing the required arguments to it, and assign
+                that object to a variable. So “person” is a variable of type “object”. Then for example we can call
+                the “greet” method, or get the value of a property.
+                In the future you will see us defining classes and passing something next to a class name, like this:
+            </div>
+
+            <pre><code class="language-py">class MySpider(scrapy.Spider):</code></pre>
+
+            <div class="txt">
+                Here we again define a class called “MySpider” and pass to it another class called “Spider” from the
+                “scrapy” package. What does this mean ?
+                So in every framework, or in most of the projects people build classes which have basic structure,
+                already implemented methods and so on. To get access to these features we do “inheritance”, as the word
+                says we inherit the given structure and features.
+                In this case “Spider” has a lot of built in methods which we can use without getting into details of
+                implementations. Or we can override a method if we want to redefine the actions of it.
+            </div>
+
+
+            <div class="sub-title">Web-Server (connect with JS/AJAX)</div>
+
+            <div class="txt">
+                To build a simple web-server with the help of Python, we can use the “Flask” web framework (for
+                installation please check out the resources). A simple web server will look like this:
+            </div>
+
+            <pre><code class="language-py">from flask import Flask
+from flask_cors import CORS
+    
+app = Flask(__name__)
+CORS(app)CORS(app)
+    
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+</code></pre>
+
+
+            <div class="txt">
+                Where we import the “Flask” class from the “flask” package and then define a route (“/”), so every time
+                a request will be sent to our server with the url “/” we will respond with “Hello, World!” message.
+            </div>
+
+            <div class="txt">
+                The “CORS” thing here is just for allowing us to access our local urls (because we send a request from
+                local(js) to our local server).
+            </div>
+
+            <div class="txt">
+                Now let’s create another route which we will use later on in JS to make an AJAX request:
+            </div>
+
+            <pre><code class="language-py">@app.route('/ajax-description')
+def ajax_description():
+    return "AJAX stands for Asynchronous JavaScript And XML"</code></pre>
+
+            <div class="txt">
+                To make your web-server up and running run the following commands on the command line:
+            </div>
+
+            <pre><code class="language-bash">export FLASK_APP=server.py</code></pre>
+
+            <div class="txt">
+                “server.py” is the name of the file you wrote the code in, so in your case might be different name and
+                then:
+            </div>
+
+            <pre><code class="language-bash">flask run</code></pre>
+
+
+            <div class="txt">
+                The default url of your server should be “<a href="http://127.0.0.1:5000/" target="_blank"
+                    class="link">http://127.0.0.1:5000/</a>”. Try to access the route we have
+                created “<a href="http://127.0.0.1:5000/ajax-description" target="_blank"
+                    class="link">/ajax-description</a>”.
+            </div>
+
+
+
+
+            <div class="sub-title">Requests</div>
+
+            <div class="txt">
+                As every programming language Python also can send requests and get response, with that being said let
+                us see how it’s done in Python:
+            </div>
+
+            <pre><code class="language-py">import requests
+ 
+url = "https://www.nationalgeographic.com/"
+    
+response = requests.get(url)
+print(response.status_code)</code></pre>
+
+            <div class="txt">
+                We import the package called “requests”, define a url variable and then by passing that url to
+                “requests” s “get” method we print the response (response status), if we get “200” then everything is
+                ok, the request is completed successfully. To see the content of the response we can call the “text”
+                property of it. Or we can transform it into a “json” object by calling the “json” method:
+            </div>
+
+            <pre><code class="language-py">response_json = response.json()</code></pre>
+
+
+            <div class="txt">
+                Very simple and powerful package which helps us to make requests and read the content of any webpage.
+            </div>
+
+
+
+            <div class="sub-title">NumPy</div>
+
+            <div class="txt">
+                “NumPy” is one of the most famous packages for “Python”. It’s mostly used for mathematical operations.
+                With the help of it we can store multi-dimensional arrays or as we say in math, tensors, and apply
+                almost any mathematical operation. It also helps us to calculate quantities such as “variance”, “std”,
+                “mean” and so on, let’s look at an example:
+            </div>
+
+            <pre><code class="language-py">import numpy as np
+ 
+a = np.array([2,7,4,6,8,1])
+b = [2,7,4,6,8,1]
+    
+print(np.var(a))
+print(np.var(b))</code></pre>
+
+            <div class="txt">
+                We created two arrays, one is a “NumPy” array and the other one default “Python” array, and then print
+                the calculated variances of those list of numbers, by calling the “var” method of numpy package.
+            </div>
+
+            <div class="txt">
+                You might be wondering if we have a built-in array in “Python” why do we need an external type of array
+                such as a numpy array? The answer to this question is simple. The speed.
+                It turns out that “NumPy” uses low level (C level) implementations to significantly improve the speed of
+                operations being done with matrixes or arrays. Thus whenever you have a huge tensor representation it’s
+                recommended to store it as a numpy array to make the operations faster.
+            </div>
+
+
+
+            <div class="sub-title">Regular Expression</div>
+
+
+            <div class="txt">
+                Regular Expression or as we love to call them RegEx is a sequence of characters that forms a search
+                pattern. it can be used to check if a string contains the specified search pattern. The beauty of RegEx
+                is that it can make a search in linear time, in other words by just traversing a sequence once.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: RegEx s are implemented for all programming languages (JS,
+                Python, Java etc), just because we are using Python for Data Scraping it will be introduced in this
+                section.
+            </div>
+
+            <div class="txt">
+                To start writing RegEx first we need to import a package called re and then call the methods(functions)
+                we want from that package. The 2 most frequently used methods for searching, are search and match which
+                both do the same thing as the name says except the second one will stop once it finds a match in the
+                string, while the second one will keep searching till the end of the string. Let’s assume we have an
+                article about “Quantum mechanics” and we want to find out who is the “father” of it. Let’s do the
+                following:
+            </div>
+
+            <pre><code class="language-py">import re
+ 
+response = requests.get("https://en.wikipedia.org/wiki/Quantum_mechanics")
+text = response.text
+matching = re.search("<a.*<\/a>.*the father", text)
+    
+if matching:
+    print(matching.group())</code></pre>
+
+
+            <div class="txt">
+                So what we do here. First we send a request to get the content of a wikipedia page, after which we run
+                our regex to match the response text, if matching is found we print the group of match (because there
+                can be possibly multiple matches that’s why re groups matchings).
+            </div>
+
+            <div class="txt">
+                By this RegEx we are looking for an opening tag of a tag after which can come anything(.*) then comes
+                the closing of a link tag after which again can come anything and then comes the words “the father”.
+            </div>
+
+            <div class="txt">
+                Now let’s look at other methods:
+            </div>
+
+            <div class="list">
+                <p><span class="label">findall</span><span class="value"> - returns a list containing all matches</span>
+                </p>
+                <p><span class="label">search</span><span class="value"> - returns a Match object if there is a match
+                        anywhere in the string</span></p>
+                <p><span class="label">split</span><span class="value"> - returns a list where the string has been split
+                        at each match</span></p>
+                <p><span class="label">sub</span><span class="value"> - Replaces one or many matches with a
+                        string</span></p>
+            </div>
+
+            <div class="txt">and the notations/symbols:</div>
+
+
+            <div class="list">
+                <p><span class="label">[]</span><span class="value"> - a set of characters</span></p>
+                <p><span class="label">\</span><span class="value"> - signals a special sequence (can also be used to
+                        escape special characters)</span></p>
+                <p><span class="label">.</span><span class="value"> - any character (except newline character</span></p>
+                <p><span class="label">^</span><span class="value"> - starts with</span></p>
+                <p><span class="label">$</span><span class="value"> - ends with</span></p>
+                <p><span class="label">*</span><span class="value"> - zero or more occurrences</span></p>
+                <p><span class="label">+</span><span class="value"> - one or more occurrences</span></p>
+                <p><span class="label">{}</span><span class="value"> - exactly the specified number of
+                        occurrences</span></p>
+                <p><span class="label">|</span><span class="value"> - either or</span></p>
+                <p><span class="label">()</span><span class="value"> - capture and group</span></p>
+            </div>
+
+            <div class="txt">
+                For more advanced notations please check out the link in the resources section. Let’s look at one more
+                example. Let’s say you want to find all phone numbers in a webpage:
+            </div>
+
+
+            <pre><code class="language-py">response = requests.get("https://www.sci.am/contacts.php?langid=1")
+
+text = response.text
+ 
+matching = re.findall("\(\+374\s\d{2,3}\)\s\d{5,6}", text)
+print(matching)
+</code></pre>
+
+
+            <div class="txt">
+                The RegEx here is assumed that the first part of the phone number should be between brackets and should
+                contain “+374” code after which comes space and then comes a 2 to 3 digit number. The second part
+                contains 5 to 6 digit numbers and those two parts are connected with a space.
+            </div>
+
+            <div class="txt">After running this you should get a list in which a bunch of phone numbers.</div>
+
+            <div class="hint">
+                You can use this online tool to do live testing on your RegEx expression before running it on your code:
+                <a href="https://regex101.com/" target="_blank" class="link">https://regex101.com/</a>
+            </div>
+
 
 
         </div>
@@ -42,7 +368,25 @@
         <div class="resources">
             <div class="resources-title">Resources</div>
             <div class="resources-list">
-                <a target="_blank" href="#" class="link">link</a>
+
+                <a target="_blank" href="https://realpython.com/python3-object-oriented-programming/"
+                    class="link">https://realpython.com/python3-object-oriented-programming/</a>
+
+                <a target="_blank" href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart"
+                    class="link">https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart</a>
+
+                <a target="_blank" href="https://requests.readthedocs.io/en/master/"
+                    class="link">https://requests.readthedocs.io/en/master/</a>
+
+                <a target="_blank" href="https://www.w3schools.com/python/numpy_copy_vs_view.asp"
+                    class="link">https://www.w3schools.com/python/numpy_copy_vs_view.asp</a>
+
+                <a target="_blank" href="https://numpy.org/doc/stable/user/quickstart.html"
+                    class="link">https://numpy.org/doc/stable/user/quickstart.html</a>
+
+                <a target="_blank" href="https://docs.python.org/3/library/re.html"
+                    class="link">https://docs.python.org/3/library/re.html</a>
+
             </div>
         </div>
     </div>
@@ -51,7 +395,7 @@
     <div class="footer">
         Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
-        <script src="assets/js/prism.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>

@@ -22,9 +22,10 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
@@ -46,26 +47,21 @@
 
             <div class="txt">
                 With this motivation let us get into it and install the package and drivers needed. You can find a
-                simple guide here:
+                simple guide listed in resources:
             </div>
 
-            <a href="https://selenium-python.readthedocs.io/installation.html"
-                class="link">https://selenium-python.readthedocs.io/installation.html</a>
 
             <div class="txt">
                 Hopefully now you have Selenium installed on your machine, so let’s run the following code:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c31">from</span><span class="c7">&nbsp;selenium </span><span
-                        class="c31">import</span><span class="c7 c18">&nbsp;webdriver</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7 c18">browser = webdriver.Chrome()</span></p>
-                <p class="c11"><span class="c7 c18">browser.maximize_window()</span></p>
-                <p class="c11"><span class="c7">browser.get(</span><span
-                        class="c16">&#39;https://buy.am/en/carrefour/ready-meals/&#39;</span><span class="c7">)</span>
-                </p>
-            </div>
+
+            <pre><code class="language-py">from selenium import webdriver
+
+browser = webdriver.Chrome()
+browser.maximize_window()
+
+browser.get('https://buy.am/en/carrefour/ready-meals/')</code></pre>
 
 
             <div class="txt">
@@ -79,27 +75,16 @@
                 want every time to scroll down there, but want to automate that process.
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c31">import</span><span class="c7 c18">&nbsp;time</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7">time.sleep(</span><span class="c43">3</span><span
-                        class="c7 c18">)</span></p>
-                <p class="c11"><span class="c7">current_height = </span><span class="c43 c18">0</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c31">while</span><span class="c7">&nbsp;current_height !=
-                        browser.execute_script(</span><span class="c16">&quot;return
-                        document.body.scrollHeight;&quot;</span><span class="c7 c18">):</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;browser.execute_script(</span><span
-                        class="c16">&quot;window.scrollTo(0,document.body.scrollHeight);&quot;</span><span
-                        class="c7 c18">)</span>
-                </p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;current_height = browser.execute_script(</span><span
-                        class="c16">&quot;return document.body.scrollHeight;&quot;</span><span class="c7 c18">)</span>
-                </p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;time.sleep(</span><span class="c43">1</span><span
-                        class="c7">)</span>
-                </p>
-            </div>
+            <pre><code class="language-py">import time
+
+time.sleep(3)
+current_height = 0
+
+while current_height != browser.execute_script("return document.body.scrollHeight;"):
+    browser.execute_script("window.scrollTo(0,document.body.scrollHeight);")
+    current_height = browser.execute_script("return document.body.scrollHeight;")
+    time.sleep(1)</code></pre>
+
 
             <div class="txt">
                 Here we import time and immediately use it. We call the sleep method which just pauses the code and
@@ -130,17 +115,11 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c31">from</span><span class="c7">&nbsp;selenium.webdriver.common.by
-                    </span><span class="c31">import</span><span class="c7 c18">&nbsp;By</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7">add_to_bucket = browser.find_element(By.XPATH, </span><span
-                        class="c16">&#39;//a[contains(text(), &quot;Cabbage
-                        Salad&quot;)]/../div[@class=&quot;product-actions
-                        &quot;]//button&#39;</span><span class="c7 c18">)</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7 c18">add_to_bucket.click()</span></p>
-            </div>
+            <pre><code class="language-py">from selenium.webdriver.common.by import By
+
+add_to_bucket = browser.find_element(By.XPATH, '//a[contains(text(), "Cabbage Salad")]/../div[@class="product-actions "]//button')
+
+add_to_bucket.click()</code></pre>
 
 
             <div class="txt">
@@ -159,24 +138,13 @@
                 snippet:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c7">names = browser.find_elements_by_xpath(</span><span
-                        class="c16">&#39;//a[@class=&quot;product--title&quot;]&#39;</span><span class="c7 c18">)</span>
-                </p>
-                <p class="c11"><span class="c7">prices = browser.find_elements_by_xpath(</span><span
-                        class="c16">&#39;//span[@class=&quot;price--default is--nowrap&quot;]&#39;</span><span
-                        class="c7 c18">)</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7">name_price_dict = </span><span class="c57">dict</span><span
-                        class="c7 c18">()</span>
-                </p>
-                <p class="c11"><span class="c31">for</span><span class="c7">&nbsp;name, price </span><span
-                        class="c31">in</span><span class="c7">&nbsp;</span><span class="c52">zip</span><span
-                        class="c7 c18">(names,
-                        prices):</span></p>
-                <p class="c11"><span class="c7 c18">&nbsp; &nbsp;name_price_dict[name.text] = price.text</span></p>
-            </div>
+            <pre><code class="language-py">names = browser.find_elements_by_xpath('//a[@class="product--title"]')
+prices = browser.find_elements_by_xpath('//span[@class="price--default is--nowrap"]')
 
+name_price_dict = dict()
+
+for name, price in zip(names, prices):
+    name_price_dict[name.text] = price.text</code></pre>
 
             <div class="txt">
                 Here we are using find_elements_by_xpath method, the name says why. This gets the XPath for matching all
@@ -195,6 +163,8 @@
         <div class="resources">
             <div class="resources-title">Resources</div>
             <div class="resources-list">
+                <a target="_blank" href="https://selenium-python.readthedocs.io/installation.html"
+                    class="link">https://selenium-python.readthedocs.io/installation.html</a>
                 <a target="_blank" href="https://selenium-python.readthedocs.io/"
                     class="link">https://selenium-python.readthedocs.io/</a>
                 <a target="_blank" href="https://selenium-python.readthedocs.io/getting-started.html"

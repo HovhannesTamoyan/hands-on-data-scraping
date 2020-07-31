@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
-        <link href="assets/css/prism.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/code.css">
 </head>
@@ -22,9 +22,10 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
@@ -52,17 +53,12 @@
                 those tags, like this:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c3">&lt;</span><span class="c27">script</span><span
-                        class="c3 c18">&gt;</span>
-                </p>
-                <p class="c11"><span class="c3 c18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
-                        something goes
-                        here</span>
-                </p>
-                <p class="c11"><span class="c3">&lt;/</span><span class="c27">script</span><span class="c3">&gt;</span>
-                </p>
-            </div>
+
+            <pre><code class="language-html">&lt;script&gt;
+    // something goes here
+&lt;/script&gt;</code></pre>
+
+
 
             <div class="txt">
                 Or you can add src attribute to the “script” tag by mentioning your file path and it will
@@ -71,13 +67,8 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c3">&lt;</span><span class="c27">script</span><span
-                        class="c7">&nbsp;</span><span class="c8">src</span><span class="c7">=</span><span
-                        class="c16">&quot;myscripts.js&quot;</span><span class="c3">&gt;&lt;/</span><span
-                        class="c27">script</span><span class="c3 c18">&gt;</span>
-                </p>
-            </div>
+            <pre><code class="language-html">&lt;script src="myscripts.js"&gt;&lt;/script&gt;</code></pre>
+
 
             <div class="txt">
                 Now when we know where to write your script, let's write it.
@@ -87,12 +78,9 @@
                 in a variable called “x” and number 10 in a variable called “y”, we need to do the following:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">x</span><span
-                        class="c7">&nbsp;= </span><span class="c43">5</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">y</span><span
-                        class="c7">&nbsp;= </span><span class="c43">10</span><span class="c7 c18">;</span></p>
-            </div>
+            <pre><code class="language-js">var x = 5;
+var y = 10;</code></pre>
+
 
 
             <div class="txt">
@@ -117,16 +105,14 @@
                 and press enter:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">x</span><span
-                        class="c7">&nbsp;= </span><span class="c43">5</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c8">x</span><span
-                        class="c7">);</span></p>
-            </div>
+
+            <pre><code class="language-js">var x = 5;
+console.log(x);</code></pre>
+
+
 
             <div class="txt">
-                What do you see, 5 ? Good job.
+                What do you see, 5 ? Good.
             </div>
             <div class="txt">
                 What we did here. The first line is the line with which you are already familiar. The second line is
@@ -136,16 +122,10 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">y</span><span
-                        class="c7">&nbsp;= </span><span class="c43">2</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c16">&quot;Hello world, this is the
-                        &quot;</span><span class="c7">&nbsp;+
-                    </span><span class="c8">y</span><span class="c7">&nbsp;+ </span><span class="c16">&quot;nd time I am
-                        using
-                        console&quot;</span><span class="c7 c18">);</span></p>
-            </div>
+            <pre><code class="language-js">var y = 2;
+console.log("Hello world, this is the " + y + "nd time I am using console");</code></pre>
+
+
 
             <div class="txt">
                 To use string or text we need to put it between the double or single quotes
@@ -342,18 +322,15 @@
                 examples:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c8">z</span><span class="c7">&nbsp;= </span><span class="c8">x</span><span
-                        class="c7">&nbsp;+ </span><span class="c8">y</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c8">c</span><span class="c7">&nbsp;= </span><span class="c8">x</span><span
-                        class="c7">&nbsp;* </span><span class="c8">y</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c8">v</span><span class="c7">&nbsp;= </span><span class="c8">x</span><span
-                        class="c7">&nbsp;% </span><span class="c8">y</span><span class="c7 c18">;</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c8">c</span><span class="c7">&nbsp;&gt;= </span><span
-                        class="c8 c18">z</span></p>
-                <p class="c11"><span class="c8">v</span><span class="c7">&nbsp;!= </span><span class="c8">c</span></p>
-            </div>
+
+
+            <pre><code class="language-js">z = x + y;
+c = x * y;
+v = x % y;
+c >= z
+v != c</code></pre>
+
+
 
 
             <div class="hint">
@@ -369,12 +346,9 @@
                 like this:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">x</span><span
-                        class="c7">&nbsp;= </span><span class="c43">5</span><span class="c7">; </span><span
-                        class="c30 c18">//
-                        Declare x, give it the value of 5</span></p>
-            </div>
+
+            <pre><code class="language-js">var x = 5; // Declare x, give it the value of 5</code></pre>
+
 
 
             <div class="txt">
@@ -382,23 +356,15 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c30 c18">/*</span></p>
-                <p class="c11"><span class="c30 c18">The code below will assign value of 2 to variable
-                        &#39;y&#39;</span></p>
-                <p class="c11"><span class="c30 c18">and then print the following sentence</span></p>
-                <p class="c11"><span class="c30 c18">Hello world, this is the 2nd time I am using console</span></p>
-                <p class="c11"><span class="c18 c30">*/</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">y</span><span
-                        class="c7">&nbsp;= </span><span class="c43">2</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c16">&quot;Hello world, this is the
-                        &quot;</span><span class="c7">&nbsp;+
-                    </span><span class="c8">y</span><span class="c7">&nbsp;+ </span><span class="c16">&quot;nd time I am
-                        using
-                        console&quot;</span><span class="c7 c18">);</span></p>
-            </div>
+            <pre><code class="language-js">/*
+The code below will assign value of 2 to variable 'y'
+and then print the following sentence
+Hello world, this is the 2nd time I am using console
+*/
+
+var y = 2;
+console.log("Hello world, this is the " + y + "nd time I am using console");</code></pre>
+
 
 
             <div class="txt">
@@ -421,32 +387,12 @@
                 data types. Here are some examples:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">length</span><span class="c7">&nbsp;= </span><span class="c43">16</span><span
-                        class="c7">; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
-                        class="c30 c18">// Number
-                        (int)</span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">lastName</span><span class="c7">&nbsp;= </span><span
-                        class="c16">&quot;Johnson&quot;</span><span class="c7">; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="c30 c18">//
-                        String
-                        (str)</span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">cars</span><span class="c7">&nbsp;= [</span><span
-                        class="c16">&quot;Saab&quot;</span><span class="c7">, </span><span
-                        class="c16">&quot;Volvo&quot;</span><span class="c7">, </span><span
-                        class="c16">&quot;BMW&quot;</span><span class="c7">]; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    </span><span class="c30 c18">// Array (list of
-                        elements)</span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">x</span><span
-                        class="c7">&nbsp;= {</span><span class="c8">firstName:</span><span
-                        class="c16">&quot;John&quot;</span><span class="c7">, </span><span
-                        class="c8">lastName:</span><span class="c16">&quot;Doe&quot;</span><span class="c7">}; &nbsp;
-                        &nbsp;</span><span class="c30">// Object</span></p>
-            </div>
+
+            <pre><code class="language-js">var length = 16;                               // Number (int)
+var lastName = "Johnson";                      // String (str)
+var cars = ["Saab", "Volvo", "BMW"];           // Array (list of elements)
+var x = {firstName:"John", lastName:"Doe"};    // Object</code></pre>
+
 
 
             <div class="sub-title">Functions</div>
@@ -458,15 +404,12 @@
                 following:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">function</span><span class="c7">&nbsp;</span><span
-                        class="c52">product</span><span class="c7">(</span><span class="c8">p1</span><span class="c7">,
-                    </span><span class="c8">p2</span><span class="c7 c18">) {</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c31">return</span><span
-                        class="c7">&nbsp;</span><span class="c8">p1</span><span class="c7">&nbsp;* </span><span
-                        class="c8">p2</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c7 c18">}</span></p>
-            </div>
+
+            <pre><code class="language-js">function product(p1, p2) {
+    return p1 * p2;
+}</code></pre>
+
+
 
             <div class="txt">
                 To define a function we use the keyword “function” and then comes the name of the function, after which
@@ -487,43 +430,24 @@
                 following.
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">function</span><span class="c7">&nbsp;</span><span
-                        class="c52">greetUser</span><span class="c7">(</span><span class="c8">first_name</span><span
-                        class="c7 c18">) {</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c27">let</span><span
-                        class="c7">&nbsp;</span><span class="c8">greeting</span><span class="c7">&nbsp;= </span><span
-                        class="c16">&quot;Hi, dear
-                        &quot;</span><span class="c7">&nbsp;+ </span><span class="c8">first_name</span><span
-                        class="c7">&nbsp;+
-                    </span><span class="c16">&quot; it&#39;s a great pleasure to see back again&quot;</span><span
-                        class="c7 c18">;</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c31">return</span><span
-                        class="c7">&nbsp;</span><span class="c8">greeting</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c7 c18">}</span></p>
-            </div>
+
+            <pre><code class="language-js">function greetUser(first_name) {
+    let greeting = "Hi, dear " + first_name + " it's a great pleasure to see back again";
+    return greeting;
+}</code></pre>
+
+
 
             <div class="txt">
                 Now, to execute or see results of those functions we need to call them, like this:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">the_product</span><span class="c7">&nbsp;= </span><span
-                        class="c52">product</span><span class="c7">(</span><span class="c43">5</span><span class="c7">,
-                    </span><span class="c43">6</span><span class="c7 c18">);</span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c8">the_product</span><span
-                        class="c7 c18">);</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">the_message</span><span class="c7">&nbsp;= </span><span
-                        class="c52">greetUser</span><span class="c7">(</span><span
-                        class="c16">&quot;John&quot;</span><span class="c7 c18">);</span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c8">the_message</span><span
-                        class="c7">);</span></p>
-            </div>
+
+            <pre><code class="language-js">var the_product = product(5, 6);
+console.log(the_product);
+var the_message = greetUser("John");
+console.log(the_message);</code></pre>
+
 
 
             <div class="txt">
@@ -545,29 +469,14 @@
                 when working with arrays:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">text</span><span class="c7">&nbsp;= </span><span class="c16">&quot;&quot;</span><span
-                        class="c7 c18">;</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c31">for</span><span class="c7">&nbsp;(</span><span
-                        class="c27">var</span><span class="c7">&nbsp;</span><span class="c8">i</span><span
-                        class="c7">&nbsp;= </span><span class="c43">0</span><span class="c7">; </span><span
-                        class="c8">i</span><span class="c7">&nbsp;&lt;
-                    </span><span class="c8">cars</span><span class="c7">.</span><span class="c8">length</span><span
-                        class="c7">;
-                    </span><span class="c8">i</span><span class="c7 c18">++) {</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c8">text</span><span
-                        class="c7">&nbsp;+=
-                    </span><span class="c8">cars</span><span class="c7">[</span><span class="c8">i</span><span
-                        class="c7">] +
-                    </span><span class="c16">&quot;&lt;br&gt;&quot;</span><span class="c7 c18">;</span></p>
-                <p class="c11"><span class="c7 c18">}</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c57">console</span><span class="c7">.</span><span
-                        class="c52">log</span><span class="c7">(</span><span class="c8">text</span><span
-                        class="c7">);</span></p>
-            </div>
+
+            <pre><code class="language-js">var text = "";
+for (var i = 0; i < cars.length; i++) {
+    text += cars[i] + "<br>";
+}
+console.log(text);</code></pre>
+
+
 
             <div class="txt">
                 We start the block of a “for” loop with the keyword “for” then inside of the brackets we define a
@@ -610,26 +519,14 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">myVar</span><span class="c7">&nbsp;= </span><span class="c52">setInterval</span><span
-                        class="c7">(</span><span class="c8">myTimer</span><span class="c7">, </span><span
-                        class="c43">1000</span><span class="c7 c18">);</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c27">function</span><span class="c7">&nbsp;</span><span
-                        class="c52">myTimer</span><span class="c7 c18">() {</span></p>
-                <p class="c11"><span class="c7">&nbsp;</span><span class="c27">var</span><span
-                        class="c7">&nbsp;</span><span class="c8">d</span><span class="c7">&nbsp;= </span><span
-                        class="c27">new</span><span class="c7">&nbsp;</span><span class="c57">Date</span><span
-                        class="c7 c18">();</span></p>
-                <p class="c11"><span class="c7">&nbsp;</span><span class="c8">document</span><span
-                        class="c7">.</span><span class="c52">getElementById</span><span class="c7">(</span><span
-                        class="c16">&quot;modifiable&quot;</span><span class="c7">).</span><span
-                        class="c8">innerHTML</span><span class="c7">&nbsp;= </span><span class="c8">d</span><span
-                        class="c7">.</span><span class="c52">toLocaleTimeString</span><span class="c7 c18">();</span>
-                </p>
-                <p class="c11"><span class="c7 c18">}</span></p>
-            </div>
+
+            <pre><code class="language-js">var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+    var d = new Date();
+    document.getElementById("modifiable").innerHTML = d.toLocaleTimeString();
+}</code></pre>
+
 
 
             <div class="txt">
@@ -661,35 +558,20 @@
                 following:
             </div>
 
-            <div class="code">
-                <p class="c11"><span class="c3">&lt;</span><span class="c27">input</span><span
-                        class="c7">&nbsp;</span><span class="c8">type</span><span class="c7">=</span><span
-                        class="c16">&quot;text&quot;</span><span class="c7">&nbsp;</span><span class="c8">id</span><span
-                        class="c7">=</span><span class="c16">&quot;comment&quot;</span><span class="c3 c18">&gt;</span>
-                </p>
-            </div>
+
+            <pre><code class="language-html">&lt;input type="text" id="comment"&gt;</code></pre>
+
+
 
             <br>
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">comment_field</span><span class="c7">&nbsp;= </span><span
-                        class="c8">document</span><span class="c7">.</span><span class="c52">getElementById</span><span
-                        class="c7">(</span><span class="c16">&quot;comment&quot;</span><span class="c7 c18">);</span>
-                </p>
-                <p class="c11"><span class="c8">comment_field</span><span class="c7">.</span><span
-                        class="c52">addEventListener</span><span class="c7">(</span><span
-                        class="c16">&quot;keyup&quot;</span><span class="c7">, </span><span
-                        class="c52">getInput</span><span class="c7 c18">);</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c27">function</span><span class="c7">&nbsp;</span><span
-                        class="c52">getInput</span><span class="c7 c18">() {</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c8">console</span><span
-                        class="c7">.</span><span class="c52">log</span><span class="c7">(</span><span
-                        class="c8">comment_field</span><span class="c7">.</span><span class="c8">value</span><span
-                        class="c7 c18">);</span></p>
-                <p class="c11"><span class="c7">}</span></p>
-            </div>
+            <pre><code class="language-js">var comment_field = document.getElementById("comment");
+comment_field.addEventListener("keyup", getInput);
+
+function getInput() {
+    console.log(comment_field.value);
+}</code></pre>
+
 
             <div class="txt">
                 Here we are firing “keyup” event, so whenever a key is up after being pressed this function will be
@@ -715,36 +597,18 @@
             </div>
 
 
-            <div class="code">
-                <p class="c11"><span class="c27">var</span><span class="c7">&nbsp;</span><span
-                        class="c8">greet_button</span><span class="c7">&nbsp;= </span><span
-                        class="c8">document</span><span class="c7">.</span><span class="c52">getElementById</span><span
-                        class="c7">(</span><span class="c16">&quot;greedy_action&quot;</span><span
-                        class="c7 c18">);</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c8">greet_button</span><span class="c7">.</span><span
-                        class="c52">addEventListener</span><span class="c7">(</span><span
-                        class="c16">&quot;click&quot;</span><span class="c7">, </span><span
-                        class="c52">displayGreet</span><span class="c7 c18">());</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c27">function</span><span class="c7">&nbsp;</span><span
-                        class="c52">displayGreet</span><span class="c7 c18">() {</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c27">var</span><span
-                        class="c7">&nbsp;</span><span class="c8">new_element</span><span class="c7">&nbsp;= </span><span
-                        class="c8">document</span><span class="c7">.</span><span class="c52">createElement</span><span
-                        class="c7">(</span><span class="c16">&quot;div&quot;</span><span class="c7 c18">);</span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c8">new_element</span><span
-                        class="c7">.</span><span class="c8">innerHTML</span><span class="c7">&nbsp;= (</span><span
-                        class="c52">greetUser</span><span class="c7">(</span><span
-                        class="c16">&quot;Jessy&quot;</span><span class="c7 c18">));</span></p>
-                <p class="c11 c49"><span class="c7 c18"></span></p>
-                <p class="c11"><span class="c7">&nbsp; &nbsp;</span><span class="c8">greet_button</span><span
-                        class="c7">.</span><span class="c8">parentNode</span><span class="c7">.</span><span
-                        class="c52">insertBefore</span><span class="c7">(</span><span class="c8">new_element</span><span
-                        class="c7">, </span><span class="c8">greet_button</span><span class="c7">.</span><span
-                        class="c8">nextSibling</span><span class="c7 c18">)</span></p>
-                <p class="c11"><span class="c7 c18">}</span></p>
-            </div>
+            <pre><code class="language-js">var greet_button = document.getElementById("greedy_action");
+
+greet_button.addEventListener("click", displayGreet());
+
+function displayGreet() {
+    var new_element = document.createElement("div");
+    new_element.innerHTML = (greetUser("Jessy"));
+
+    greet_button.parentNode.insertBefore(new_element, greet_button.nextSibling)
+}</code></pre>
+
+
 
             <div class="txt">
                 First we get the button element with “greedy_action” id then we add an event to it (a click event), so
@@ -752,6 +616,84 @@
                 create a div element and add a text to it, after which we assign that new element to the parent element
                 of the button element.
             </div>
+
+
+
+            <div class="sub-title">AJAX</div>
+
+            <div class="txt">
+                Another way of changing the DOM dynamically is to use AJAX. AJAX is a technique by which we can get data
+                from a web server for our webpage.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: For AJAX requests we need to have a server setted up. Because
+                this is a guide for Data Scraping, we will not get deep into Web Development.
+            </div>
+
+            <div class="txt">
+                You can check a basic example in the resources
+            </div>
+
+            <div class="txt">
+                We need to send a request and receive a response from a server.
+                You can checkout the “Web-Server” subsection in the “Python” section, where we represent a simple
+                example of a Python web server where we have a route called “<a
+                    href="http://127.0.0.1:5000/ajax-description" target="_blank"
+                    class="link">http://127.0.0.1:5000/ajax-description</a>”
+                which returns a string. This can do the job:
+            </div>
+
+            <pre><code class="language-html">&lt;button type="button" id="request-data"&gt;Request data&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;</code></pre>
+
+
+            <div class="txt">
+                Let’s have an element such this and define the function mentioned above:
+            </div>
+
+            <pre><code class="language-js">var button = document.getElementById("request-data");
+ 
+button.addEventListener("click", loadDoc);
+    
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+        }
+    };
+    
+    xhttp.open("GET", "http://127.0.0.1:5000/ajax-description", true);
+    xhttp.send();
+}
+</code></pre>
+
+
+            <div class="txt">
+                Here we assign a click event to the button we created and give the function name to it. In the function
+                we create a new object from “XMLHttpRequest” “class”, and then call the method “onreadystatechange”. In
+                it we check if the state of the response is done (4) and status is ok (200), so we assign the content of
+                the response to the element with id “demo”, after this we give the parameters to “open” method, the
+                method of request, url. And in the end we call the “send” method.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: JS is an asynchronous programming language, this is what makes
+                it different from most of the programming languages such as Python. Asynchronous means that once an
+                action starts, the computer is not waiting for that action to finish, but it continues and fires the
+                next action and so on. While in Python actions are run one after the other, in the order they are
+                written in the code.
+            </div>
+
+            <div class="txt">
+                The “true” parameter in “open” method specifies that we want this process to be asynchronous, because it
+                might take a long time to fetch the data (depending on the size of it), and we don’t want to wait till
+                that process is finished so we can do something else, but continue running the things we want without
+                wasting time.
+            </div>
+
 
 
         </div>
@@ -770,6 +712,9 @@
                     class="link">https://www.youtube.com/watch?v=W6NZfCO5SIk&t=6s</a>
                 <a target="_blank" href="https://www.youtube.com/watch?v=hdI2bqOjy3c"
                     class="link">https://www.youtube.com/watch?v=hdI2bqOjy3c</a>
+                <a target="_blank" href="https://www.w3schools.com/js/js_ajax_http_send.as"
+                    class="link">https://www.w3schools.com/js/js_ajax_http_send.as</a>
+
             </div>
         </div>
     </div>
@@ -779,7 +724,7 @@
     <div class="footer">
         Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
-        <script src="assets/js/prism.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands on Data Scraping</title>
+
+    <link href="assets/css/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/code.css">
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul id="nav-container" class="nav-container">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="introduction.html">Intorduction</a></li>
+            <li class="nav-item"><a href="tools.html">Tools</a></li>
+            <li class="nav-item"><a href="html.html">HTML</a></li>
+            <li class="nav-item"><a href="css.html">CSS</a></li>
+            <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
+            <li class="nav-item"><a href="python.html">Python</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
+            <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="title">Case Studies</div>
+
+            <div class="txt">
+                In this section we will cover some practical examples, and do some analyses on it
+            </div>
+
+            <div class="sub-title">Covid-19</div>
+
+            <div class="txt">
+                These days when the world is in pandemic and everything seems to be so unknown (hopefully when you read
+                this it won’t be true), people need to do analyses on the records available and maybe make predictions.
+                Let’s try to scrape the table of cases which is updated everyday and measure some quantities.
+            </div>
+
+            <a href="https://www.worldometers.info/coronavirus/" target="_blank"
+                class="link">https://www.worldometers.info/coronavirus/</a>
+
+            <div class="hint">
+                Visit the page and try to understand what techniques can be used to get the table, it’s highly
+                recommended to do that before looking at the codes.
+            </div>
+
+            <div class="txt">
+                You should notice that when in the beginning you scroll to the table it isn't generated yet. Thus we can
+                assume that JS is being used to generate it, so to that end we need to use “Selenium” to check somehow
+                to get the content when the page is fully loaded.
+            </div>
+
+            <div class="txt">
+                Here are multiple ways of scraping that table, the first one is the way of using “Scrapy” by targeting
+                elements with css selector or Xpath. Or we can use a much simpler and faster technique. “pandas” package
+                provides us a method called “read_html” which receives the text attribute of a “response” class and
+                fetches all “table” tags from it.
+            </div>
+
+            <pre><code class="language-py">import pandas as pd
+import requests
+import time
+import selenium
+from selenium import webdriver
+    
+class CovidScraper():
+    def __init__(self, url):
+        self.url = url
+    
+        self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
+    
+    
+    def parse(self):
+        self.driver.get(self.url)
+        time.sleep(3)
+    
+        page_content = self.driver.page_source
+        tables = pd.read_html(page_content)
+        
+        self.driver.close()
+    
+        self.__store(tables[0], "covid")
+    
+    def __store(self, df, file_name):
+        df.to_json(f"{file_name}.json")
+    
+    
+url = 'https://www.worldometers.info/coronavirus/'
+covid_scraper = CovidScraper(url)
+covid_scraper.parse()
+</code></pre>
+
+            <div class="txt">
+                First of all we create the webdriver (in my case “Chrome” driver) after which when the “parse” method is
+                called we send request of the url and wait for 3s to make sure the content is fully loaded, after which
+                we get the html of the page and extract “table” tag contents from it, and then store that dataframe into
+                a “json” file.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: “__store” method name is written so to show that this is a
+                “private” method, which means it can’t be accessed from outside of the class.
+            </div>
+
+            <div class="txt">
+                Now, when we have stored that file, let’s find out which are the countries that have the most active
+                cases of this virus (normed by populations):
+            </div>
+
+            <pre><code class="language-py">df = pd.read_json("covid.json")
+df = df.iloc[1:-1]
+df = df[df['ActiveCases'].notna()]
+print(df)
+    
+active_cases_over_population = list(df["ActiveCases"]/df["Population"])
+acop_zip = zip(df["Country,Other"], active_cases_over_population)
+acop_dict = dict(acop_zip)
+print(acop_dict)
+    
+sorted_acop_dict = sorted(acop_dict.items(), key = lambda x: x[1], reverse=True)
+print(sorted_acop_dict)</code></pre>
+
+
+            <div class="txt">
+                You can use a .ipynb file to run those commands, just to feel comfortable and see what’s going on at
+                each step.
+            </div>
+
+            <div class="txt">
+                After reading the file we remove the first and the second records because those represent cumulative
+                information, and then keep the records which have the “ActiveCases” column present in them (is not set
+                to “nan”). Then we normalize active cases over populations to get comparable numbers, otherwise just
+                comparing active cases of populations such as “China” and “Anguilla” would be nonsense. You will see
+                that “USA” is the first, second it “Panama” which is followed by “French Guiana” and “Armenia” is 12th
+                out of 211 countries (30/07/2020), hence keep your mask on.
+            </div>
+
+            <div class="txt">
+                You can extract any other similar properties from this set. Let’s see which countries ”performed good”
+                during these times. For that:
+            </div>
+
+            <pre><code class="language-py">deaths_over_total_recovered = list(df["TotalRecovered"]/df["TotalCases"])
+dop_zip = zip(df["Country,Other"], deaths_over_total_recovered)
+dop_dict = dict(dop_zip)
+print(dop_dict)</code></pre>
+
+            <div class="txt">
+                The logic is clear, we need to divide the number of recovered people over the total infected number. You
+                will notice that the countries with comparably small populations will lead the list. If we could have
+                the dataset of healthcare expenditures per capita per country we could also make assumptions on how well
+                each country performed from a financial perspective.
+            </div>
+
+
+            <div class="sub-title">Currency change</div>
+
+
+            <div class="txt">
+                In this case study we will scrap the currencies (USD, EUR, RUR, GBP to AMD) for all banks listed. Play
+                around the website and try to plan how to scrape.
+            </div>
+
+            <a href="http://rate.am/" target="_blank" class="link">http://rate.am/</a>
+
+            <br><br>
+
+            <div class="hint">
+                Check the “Cross” button on the top of the table, it will give
+                another table then on the right of it you will see a date picker, there you can set the date and then it
+                will automatically return you to the “Flat” checked page
+            </div>
+
+
+            <div class="txt">
+                This is an interesting case, because some things are not well designed and pretty unstable here. You
+                might do the steps mentioned earlier and get a different table. This is terrible. But this is a good
+                example to be prepared on real world examples, because most of them will have uniqueness.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: “n_days” here represent the number of days from the beginning of
+                the current month, for example if the current month is December and n is set to 15, the dates will be
+                from December 1 to 15.
+            </div>
+
+            <pre><code class="language-py">import scrapy
+from selenium import webdriver
+import time
+import requests
+import pandas as pd
+import os
+import numpy as np
+    
+class RateSpider(scrapy.Spider):
+    name = "rate"
+    allowed_domains = ['rate.am']
+    start_urls = ['http://rate.am/en']
+    
+    custom_settings = {
+        "FEEDS": {"rate.json": {"format": "json"}}
+    }
+    
+    def __init__(self, n_days):
+        self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
+    
+        self.n_days = int(n_days)
+    
+    def parse(self, response):
+        
+        self.driver.get(response.url)
+    
+        time.sleep(3)
+    
+        i = 1
+        while i <= self.n_days:
+    
+            # navigate
+    
+            cross = self.driver.find_element_by_xpath("//label[text() = 'Cross']")
+            
+            cross.click()
+            time.sleep(3)
+    
+            rates_by_previous_date = self.driver.find_element_by_xpath("//a[text() = 'Rates by previous date']")
+            
+            rates_by_previous_date.click()
+            time.sleep(3)
+    
+            date_picker = self.driver.find_element_by_xpath(f"//div[@id='dtPicker']//td[text() = '{i}']")
+            
+            date_picker.click()
+            
+            show_input = self.driver.find_element_by_xpath("//div[@id='dtPicker']//input[@value='Show']")
+    
+            show_input.click()
+            time.sleep(4.2)
+    
+    
+            try:
+                flat_check = self.driver.find_element_by_xpath("//input[@name='ctl00$Content$RB$rtp']").get_attribute("checked")
+    
+                if flat_check:
+                    current_url = self.driver.execute_script("return window.location.href")
+                    response = requests.get(current_url)
+    
+                    table = pd.read_html(response.text)
+                    table = table[2]
+                    table = table.drop(columns=[0, 2, 3, 4, 13, 14], axis=1)
+                    table = table.iloc[2:-1, :]
+                    table = table.sort_values(by=[1])
+                    table.reset_index(drop=True, inplace=True)
+                    table.rename(columns = {1:'bank_name', 5:'usd_buy',6:'usd_sell',7:'eur_buy',8:'eur_sell', 9:'rur_buy',10:'rur_sell',11:'gbp_buy',12:'gbp_sell'}, inplace = True)
+                    table = table.astype({'usd_buy':'float16','usd_sell':'float16','eur_buy':'float16','eur_sell':'float16', 'rur_buy':'float16','rur_sell':'float16','gbp_buy':'float16','gbp_sell':'float16'})
+                    table = table.dropna()
+    
+                    yield table.to_dict()
+    
+            except:
+                continue
+    
+            i += 1
+    
+        self.driver.close()</code></pre>
+
+            <div class="txt">
+                Here most of the things should be well known, except a few things. The “while” loop will repeat the
+                entire process of scraping the number of days (“n_days”) times. Inside of the while loop, before the
+                “try-catch” block we do the steps required for getting the table (mentioned earlier). In the “try” block
+                we check if the table that we got is the one we really need, because as we already said it might not
+                give the table we want, if it’s not the case we should repeat the process for that particular day once
+                again. After making sure that the targeted table is the right one we transform it into a DataFrame, do
+                some cleaning, renaming columns, and then yielding the dictionary of it. After each iteration the
+                extracted dictionaries are collected and in the end are stored in a “json” file.
+            </div>
+
+            <div class="txt">
+                Now let’s read the file and analyse the data, and calculate variation of USD (buy) exchange rate for
+                each bank over “n_days” days and figure out which bank provides the most stable exchange rates and which
+                bank least:
+            </div>
+
+            <pre><code class="language-py">df = pd.read_json("rate.json")
+
+bank_names_usd_buys = {}
+    
+for i, record in df.iterrows():
+    
+    for j in record.bank_name:
+        bank_name = record.bank_name[j]
+    
+    if bank_name in bank_names_usd_buys:
+        bank_names_usd_buys[bank_name].append(record.usd_buy[j])
+    else:
+        bank_names_usd_buys[bank_name] = [record.usd_buy[j]]
+    
+print(bank_names_usd_buys)
+    
+    
+bank_names_usd_buys_var = {}
+    
+for bank_name in bank_names_usd_buys:
+    bank_names_usd_buys_var[bank_name] = np.var(bank_names_usd_buys[bank_name])
+    
+print(bank_names_usd_buys_var)
+    
+var_max_key = max(bank_names_usd_buys_var, key=bank_names_usd_buys_var.get)
+var_min_key = min(bank_names_usd_buys_var, key=bank_names_usd_buys_var.get)
+    
+print(var_max_key, var_min_key)</code></pre>
+
+
+            <div class="txt">
+                The steps here are trivial, we just build a dictionary of bank name (str) and USD buy currency pairs
+                (list), after which we calculate the variance of the numbers in each list, and then get the key of
+                maximum and minimum variance corresponding values.
+            </div>
+
+
+            <div class="txt">
+                Now let’s see the change of EUR rate change over time:
+            </div>
+
+
+            <pre><code class="language-py">for i, record in df.iterrows():
+    time_eur_buy.append(np.mean(list(record.eur_buy.values())))
+    
+plt.plot(time_eur_buy)</code></pre>
+
+
+            <div class="txt">
+                You should see a nice graph, with our current data we got that the tendency of EUR is increasing.
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="resources">
+            <div class="resources-title">Resources</div>
+            <div class="resources-list">
+                <a target="_blank" href="#" class="link">link</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="footer">
+        Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
+    </div>
+    <script src="assets/js/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+</html>

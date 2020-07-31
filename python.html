@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
-        <link href="assets/css/prism.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/code.css">
 </head>
@@ -22,15 +22,373 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
     <div class="container">
         <div class="section">
             <div class="title">Python</div>
+
+            <div class="txt">
+                Python is one of the most popular programming languages available out there, which is widely used for
+                data science, analysis, manipulation, web development and system scripting . With the help of a
+                programming language such as this we can store access and edit data, and make logical and mathematical
+                operations send requests and get content of a website. We can open and edit files in our Operating
+                System. Python is available for any type of Operating System, for example there is no difference you use
+                Windows or Mac. Python is the perfect programming language for people without any coding experience.
+                Moreover, python has a simple syntax similar to the English language. That is, if you are excellent in
+                English, you have a big chance To get comfortable with python. Also Python has syntax that allows
+                developers to write programs with fewer lines than some other programming languages. Python is an ideal
+                programming language for the financial industry. For the first step to get familiar with Python we will
+                introduce Python variables and their types.
+            </div>
+
+            <div class="sub-title">Variables</div>
+
+            <div class="txt">
+                Variables are containers for storing data values. Unlike other programming languages, Python has no
+                command for declaring a variable. A variable is created the moment you first assign a value to it.
+                Variables are nothing but reserved memory locations to store values.Therefore, by assigning different
+                data types to variables, you can store integers, decimals or characters in these variables. The operand
+                to the left of the = operator is the name of the variable and the operand to the right of the = operator
+                is the value stored in the variable. Comments starts with a #.
+            </div>
+
+            <pre><code class="language-py">name = 'Armen'      # a string
+age = 35            # an integer
+salary = 100.000    # A float
+</code></pre>
+
+            <div class="txt">
+                The "print" function prints the specified message to the screen, or other standard output device. The
+                message can be a string, or any other object. What we will write inside the parentheses is called
+                argument or parameter.
+            </div>
+
+            <div class="txt">
+                Variables do not need to be declared with any particular type and can even change type after they have
+                been set. String variables can be declared either by using single or double quotes.
+            </div>
+
+            <div class="txt">
+                A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume).
+                Rules for Python variables:
+            </div>
+
+            <div class="list">
+                <p><span class="label">must start with a letter or the underscore character</span></p>
+                <p><span class="label">cannot start with a number</span></p>
+                <p><span class="label">can only contain alpha-numeric characters and underscores (A-z, 0-9, and _
+                        )</span></p>
+                <p><span class="label">variable names are case-sensitive (age, Age and AGE are three different
+                        variables)</span></p>
+            </div>
+
+
+            <div class="txt">
+                Python allows us to assign values to multiple variables in one line. On the other hand, we can assign
+                the same value to multiple variables in one line.
+            </div>
+
+            <div class="sub-title">Operators</div>
+
+            <div class="txt">
+                The second most important part of learning Python is using Python operators. Operators are used to
+                perform operations on variables and values. The simplest type of operators is Python Arithmetic
+                Operators.
+            </div>
+
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Operator</span></p>
+                        </td>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Describtion</span></p>
+                        </td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>+</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Addition</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>-</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Subtraction</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>*</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Multiplication</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>/</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Division</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>%</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Modulus</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="sub-title">Data types</div>
+
+            <div class="txt">
+                Python has five standard data types:
+            </div>
+
+            <div class="list">
+                <p><span class="value">Numbers</span></p>
+                <p><span class="value">String</span></p>
+                <p><span class="value">List</span></p>
+                <p><span class="value">Dictionary</span></p>
+                <p><span class="value">Boolean</span></p>
+            </div>
+
+            <div class="txt">
+                You can get the data type of any object by using the type() function.There are three numeric types in
+                Python: int, float, complex. Variables of numeric types are created when you assign a value to them.
+                Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length. Float,
+                or "floating point number" is a number, positive or negative, containing one or more decimals. As we
+                have mentioned above, we can convert from one type to another. For doing so, we need to use int(),
+                float(), and complex() methods.
+            </div>
+
+            <pre><code class="language-py">a = 5    # int
+b = 4.6  # float
+c = 3j   # complex
+convert_a = float(a) 
+conver_b = int(b) 
+convert_c = complex(c)</code></pre>
+
+
+            <div class="txt">
+                String literals in python are surrounded by either single quotation marks, or double quotation marks.
+                Assigning a string to a variable is done with the variable name followed by an equal sign and the
+                string.
+            </div>
+
+            <div class="txt">
+                List is a collection which is ordered and changeable. Allows duplicate members. In Python lists are
+                written with square brackets.
+            </div>
+
+            <pre><code class="language-py">countries = ["US", "Canada", "Russia", "Italy", "Spain", "Armenia"]</code></pre>
+
+            <div class="txt">
+                If we want to show the first 2 elements or the last 3 elements, we should write codes like these.
+            </div>
+
+            <pre><code class="language-py">print(countries[:2])
+print(countries[3:])</code></pre>
+
+
+            <div class="txt">
+                There are certain things you can do with all sequence types. These operations include indexing, slicing,
+                adding, multiplying, and checking for membership. In addition, Python has built-in functions for finding
+                the length of a sequence and for finding its largest and smallest elements.
+            </div>
+
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Method</span></p>
+                        </td>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Description</span></p>
+                        </td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>append()</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Adds an element at the end of the list</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>clear()</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Removes all the elements from the list</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>copy()</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Returns a copy of the list</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>count()</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Returns the number of elements with the specified value</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>extend()</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Add the elements of a list (or any iterable), to the end of the current
+                                        list</span></p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="txt">
+                A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are
+                written with curly brackets, and they have keys and values. Each key is separated from its value by a
+                colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty
+                dictionary without any items is written with just two curly braces, like this: {}.To access dictionary
+                elements, you can use the familiar square brackets along with the key to obtain its value.
+            </div>
+
+            <pre><code class="language-py">person = {'Name': 'Ani', 'Age': 30, 'Salary': '200.000 AMD'}
+print(person['Name'])
+print(person['Age'])
+print(person['Salary'])</code></pre>
+
+            <div class="txt">Adding an item to the dictionary is done by using a new index key and assigning a value to
+                it.</div>
+
+
+            <pre><code class="language-py">person["Profession"] = "economist"</code></pre>
+
+
+            <div class="txt">
+                In programming you often need to know if an expression is True or False. You can evaluate any expression
+                in Python, and get one of two answers, True or False. When you compare two values, the expression is
+                evaluated and Python returns the Boolean answer. We will use this data type when we will discuss the
+                condition statements(if...else).
+            </div>
+
+
+            <div class="sub-title">Decision-making operators</div>
+
+
+            <div class="txt">
+                Python supports the usual logical conditions from mathematics:
+            </div>
+
+
+            <div class="list">
+                <p><span class="label">a == b</span><span class="value"> - Equals</span></p>
+                <p><span class="label">a != b</span><span class="value"> - Not Equals</span></p>
+                <p><span class="label">a < b</span><span class="value"> - Less than</span></p>
+                <p><span class="label">a <= b</span><span class="value"> - Less than or equal to</span></p>
+                <p><span class="label">a > b</span><span class="value"> - Greater than</span></p>
+                <p><span class="label">a >= b</span><span class="value"> - Greater than or equal to</span></p>
+            </div>
+
+            <div class="txt">
+                These conditions can be used in several ways, most commonly in "if statements" and loops. Python if
+                Statement is used for decision-making operations. It contains a body of code which runs only when the
+                condition given in the if statement is true. If the condition is false, then the optional else statement
+                runs which contains some code for the else condition. When you want to justify one condition while the
+                other condition is not true, then you use "if statement".
+            </div>
+
+            <pre><code class="language-py">a = 55
+b = 33
+
+if b > a:
+    print("b is greater than a")
+else:
+    print("b is not greater than a")
+</code></pre>
+
+            <div class="txt">
+                The "else condition" is usually used when you have to judge one statement on the basis of another. If
+                one condition goes wrong, then there should be another condition that should justify the statement or
+                logic.
+            </div>
+
+            <div class="txt">
+                In general, statements are executed sequentially: The first statement in a function is executed first,
+                followed by the second, and so on. There may be a situation when you need to execute a block of code
+                several number of times. Programming languages provide various control structures that allow for more
+                complicated execution paths.
+            </div>
+
+            <div class="sub-title">Loops</div>
+
+            <div class="txt">
+                A loop statement allows us to execute a statement or group of statements multiple times. Python has two
+                types of loop: While loops and For loops. A while loop statement in Python programming language
+                repeatedly executes a target statement as long as a given condition is true. A for loop is used for
+                iterating over a sequence, for example let’s print number from 1 to 10:
+            </div>
+
+            <pre><code class="language-py">for i in range(10):
+    print(i)</code></pre>
+
+            <div class="txt">
+                The “range” function generates a sequence of integers starting from 0 up to 9 excluding 10.
+            </div>
+
+            <div class="txt">
+                Or we print the elements of the dictionary “person” created earlier:
+            </div>
+
+            <pre><code class="language-py">for key in person:
+    print(person[key])</code></pre>
+
+
+            <div class="txt">
+                In this example the iteration is done over the keys of the dictionary, thus we can access the value of
+                the dictionary by the “key” variable which changes at each iteration. Python’s second operator for
+                looping is “while”, which checks if a given condition is correct at the beginning of each iteration, for
+                example:
+            </div>
+
+
+            <pre><code class="language-py">i = 1
+                
+while i < 6:
+    print(i)
+    i += 1
+</code></pre>
 
 
         </div>
@@ -42,7 +400,10 @@
         <div class="resources">
             <div class="resources-title">Resources</div>
             <div class="resources-list">
-                <a target="_blank" href="#" class="link">link</a>
+                <a target="_blank" href="https://docs.python.org/3.6/tutorial/" class="link">https://docs.python.org/3.6/tutorial/</a>
+                <a target="_blank" href="https://www.w3schools.com/python/" class="link">https://www.w3schools.com/python/</a>
+                <a target="_blank" href="https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en" class="link">https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en</a>
+
             </div>
         </div>
     </div>
@@ -51,7 +412,7 @@
     <div class="footer">
         Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
-        <script src="assets/js/prism.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>

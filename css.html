@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
-        <link href="assets/css/prism.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/code.css">
 </head>
@@ -22,15 +22,435 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
     <div class="container">
         <div class="section">
             <div class="title">CSS</div>
+
+            <div class="txt">
+                CSS is the standard language for defining styles on web pages. Although CSS is more widely known for its
+                application in HTML documents, it can be used for defining styles for any structured document format.
+                CSS stands for Cascading Style Sheets, it describes how HTML elements are to be displayed on screen,
+                paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all
+                at once. External stylesheets are stored in CSS files
+            </div>
+
+            <div class="txt">
+                From the beginning HTML was created to describe the content of a page. When styling attributes were
+                added to the HTML, it became a long and expensive process. So the World Wide Web Consortium (W3C)
+                created CSS, which removed the style formatting from the HTML page.
+            </div>
+
+            <div class="txt">
+                The style definitions are normally saved in external .css files. Which means that you can change the
+                look of an entire website by changing just one file.
+            </div>
+
+            <div class="txt">
+                HTML and CSS are the best of friends!
+            </div>
+
+            <div class="txt">
+                There are three ways of inserting a style sheet:
+            </div>
+
+            <div class="list">
+                <p><span class="value">External CSS</span></p>
+                <p><span class="value">Internal CSS</span></p>
+                <p><span class="value">Inline CSS</span></p>
+            </div>
+
+            <div class="txt">
+                The most common way to add CSS in HTML, is to keep the styles in external CSS files. For making them
+                work together you should use the
+                &lt;link&gt; tag,which we have already mentioned in the HTML section. An external style sheet can be
+                written
+                in any text editor, and must be saved with a .css extension. The external .css file should not contain
+                any HTML tags.
+            </div>
+
+            <div class="sub-title">Syntax</div>
+
+            <div class="txt">
+                The CSS syntax consists of a set of rules. These rules have 3 parts:
+            </div>
+
+            <div class="list">
+                <p><span class="value">Selector</span></p>
+                <p><span class="value">Property</span></p>
+                <p><span class="value">Value</span></p>
+            </div>
+
+            <div class="txt">
+                You don't need to remember this in order to code CSS. Once you start coding CSS, you'll do so without
+                thinking "this is a selector" or "that is a property".
+            </div>
+
+            <div class="txt">
+                A CSS rule-set consists of a selector and a declaration block:
+            </div>
+
+            <div class="txt">
+                The selector points to the HTML element you want to style. The declaration block contains one or more
+                declarations separated by semicolons. Each declaration includes a CSS property name and a value,
+                separated by a colon. Multiple CSS declarations are separated with semicolons, and declaration blocks
+                are surrounded by curly braces.
+            </div>
+
+            <div class="txt">
+                Let’s make a practical example: we want all &lt;h1&gt; elements to be center-aligned, with a red text
+                color.
+            </div>
+
+            <pre><code class="language-css">h1 {
+    color: red;
+    text-align: center;
+}
+</code></pre>
+
+            <div class="list">
+                <p><span class="value">h1 is a selector in CSS (it points to the HTML element you want to style:
+                        &lt;p&gt;.</span></p>
+                <p><span class="value">color is a property, and red is the property value</span></p>
+                <p><span class="value">text-align is a property, and center is the property value</span></p>
+            </div>
+
+            <div class="txt">
+                You can apply a style to many selectors if you like. Just separate the selectors with a comma.
+            </div>
+
+            <pre><code class="language-css">h1, h2, h3, h4, h5, h6 { color: blue }</code></pre>
+
+            <div class="txt">
+                But what if you only want some of your headings to be blue? Perhaps you want the color of your headings
+                to reflect the section of the site that you're in. That is why you need to use classes.
+            </div>
+
+            <div class="txt">
+                In CSS, classes allow you to apply a style to a given class of an element. To do this, you should link
+                the element to the style by declaring a style for the class, then assigning that class to the element.
+                You declare a CSS class by using a dot (.) followed by the class name. You make up the class name
+                yourself. After the class name you simply enter the properties/values that you want to assign to your
+                class.
+            </div>
+
+            <pre><code class="language-css">.class-name { property:value; }</code></pre>
+
+            <div class="txt">
+                If you want to use the same class name for multiple elements, but each with a different style, you can
+                prefix the dot with the HTML element name.
+            </div>
+
+            <pre><code class="language-css">p.large { font-size: 2em; }</code></pre>
+
+            <div class="txt">
+                Any HTML element can have the id attribute applied to it. The value of this attribute is the element's
+                unique identifier. For example, &lt;h1 id="mainHeading"&gt; gives that element a unique identifier of
+                mainHeading.
+            </div>
+
+            <div class="txt">
+                The syntax for declaring a CSS ID is the same as for classes, except that instead of using a dot, you
+                use a hash (#).
+            </div>
+
+            <pre><code class="language-css">#id-name { property:value; }</code></pre>
+
+            <div class="txt">
+                Similar to classes, if you can use the same id name for multiple elements, but each with a different
+                style, you can prefix the hash with the HTML element name.
+            </div>
+
+            <pre><code class="language-css">p#intro { font-size: 2em; }</code></pre>
+
+            <div class="txt">
+                As the classes and IDs are very similar, so it depends on the situation which one you apply. You should
+                use classes when your style needs to be applied multiple times on the same page. For example, you might
+                have many &lt;h1&gt; elements that need the same style applied.You should use IDs if only one element on
+                the
+                page should have the style applied, and/or you need a unique identifier for that element. For
+                example, you might assign an ID to a &lt;nav&gt; tag which contains your left menu. The styles for this
+                ID
+                could contain the position, background-color, float properties, size etc. You probably wouldn't
+                want any other element on the page to use this particular style. Another useful thing about IDs
+                is that you can use the Document Object Model (DOM) to refer to them. This enables you to use
+                JavaScript/DHTML techniques to build a much more interactive website.
+            </div>
+
+
+            <div class="sub-title">CSS Selectors</div>
+
+            <div class="txt">
+                This is perhaps the most important part in this seciton from Data Scraping perspective. In CSS,
+                selectors are patterns used to select the element(s) you want to style.
+            </div>
+
+            <div class="txt">
+                The following table summarizes main CSS selectors’ syntax:
+            </div>
+
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Selector</span></p>
+                        </td>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Example</span></p>
+                        </td>
+                        <td colspan="1" rowspan="1">
+                            <p><span>Example description</span></p>
+                        </td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.class</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.intro</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with class="intro"</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.class1.class2</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.name1.name2</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with both name1 and name2 set within its class
+                                        attribute</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.class1 .class2</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>.name1 .name2</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with name2 that is a descendant of an element with
+                                        name1</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>#id</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>#firstname</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects the element with id="firstname"</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>*</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>*</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>element</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>p</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all &lt;p&gt; elements</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>element>element</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>div > p</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>element+element</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>div + p</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt;
+                                        elements</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>element1~element2</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>p ~ ul</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt;
+                                        element</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[attribute]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[target]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with a target attribute</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[attribute=value]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[target=_blank]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with target="_blank"</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[attribute~=value]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>[title~=flower]</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects all elements with a title attribute containing the word "flower"</span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>:last-child</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>p:last-child</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects every &lt;p&gt; element that is the last child of its parent</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>:not(selector)</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>:not(p)</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects every element that is not a &lt;p&gt; element</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p><span>:nth-child(n)</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>p:nth-child(2)</span></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p><span>Selects every &lt;p&gt; element that is the second child of its parent</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="sub-title">Other styling attributes</div>
+
+            <div class="txt">Bellow we present some examples of styling attribute, they are numerous that even
+                experiences developers forget what was the name of a particular attribute.</div>
+            
+            <div class="hint">
+                Try to go throw those properties and play with it, to get familiar. We leave those snippets without comments so you can try and see what happens
+            </div>
+
+            <pre><code class="language-css">body {
+    background-image: url("img_tree.png");
+    background-repeat: repeat-x;
+    background-position: left top;
+}</code></pre>
+
+            <pre><code class="language-css">.button {
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}</code></pre>
+
+
+            <pre><code class="language-css">ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}</code></pre>
+
+
+            <pre><code class="language-css">#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}</code></pre>
+
 
 
         </div>
@@ -51,7 +471,7 @@
         Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
 
-        <script src="assets/js/prism.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>

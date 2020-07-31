@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands on Data Scraping</title>
 
-        <link href="assets/css/prism.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/code.css">
 </head>
@@ -22,9 +22,10 @@
             <li class="nav-item"><a href="css.html">CSS</a></li>
             <li class="nav-item"><a href="javascript.html">JavaScript</a></li>
             <li class="nav-item"><a href="python.html">Python</a></li>
-            <li class="nav-item"><a href="python-more.html">Python (advanced)</a></li>
+            <li class="nav-item"><a href="python-advanced.html">Python (advanced)</a></li>
             <li class="nav-item"><a href="scrapy.html">Scrapy</a></li>
             <li class="nav-item"><a href="selenium.html">Selenium</a></li>
+            <li class="nav-item"><a href="case-studies.html">Case Studies</a></li>
         </ul>
     </div>
 
@@ -32,6 +33,296 @@
         <div class="section">
             <div class="title">Scrapy</div>
 
+            <div class="txt">
+                Now when you adopt enough with Python it’s time to get into one of the most important package/frameworks
+                in Web Scraping, Scrapy.
+                The difference between a package and a framework is that a framework is a collection of libraries made
+                for a particular problem or project type. A package is a collection of programmes that can either be
+                used the same way as libraries or as extensions to a project.
+            </div>
+
+            <div class="sub-title">Scrapy-package</div>
+
+            <div class="txt">
+                Let’s import the packages we will be using:
+            </div>
+
+            <pre><code class="language-py">from scrapy.http import TextResponse
+import requests
+import pandas as pd</code></pre>
+
+            <div class="txt">
+                Let’s look at an example of <a href="https://www.menu.am/" target="_blank"
+                    class="link">https://www.menu.am/</a>. Set the url of it in a variable, send a request and fetch the
+                response right away, just like this:
+            </div>
+
+
+            <pre><code class="language-py">url = "https://www.menu.am"
+page = requests.get(url)
+response = TextResponse(url=page.url, body=page.text, encoding='utf-8')
+</code></pre>
+
+            <div class="txt">
+                Now let’s target the following data from all of the items in the page:
+            </div>
+
+
+            <pre><code class="language-py">titles = response.xpath("//a[@class='title']/text()").extract()
+links = response.xpath("//div[@class='fl list-logo']/a/@href").extract()
+categories = response.xpath("//span[@class='restType']/text()").extract()
+ratings = response.xpath("//div[@class='new_rates_block']/text()", default=None).extract()
+open_hours = response.xpath("//span[@class='new_list_time_block_inner']/text()").extract()
+</code></pre>
+
+            <div class="txt">
+                Simple “XPath” techniques are used inside of the “xpath” method of the “TextResponse” instance, after
+                which we extract the data.
+            </div>
+
+            <div class="txt">
+                After which we can store all this information in a “DataFrame”:
+            </div>
+
+            <pre><code class="language-py">df = pd.DataFrame({
+    'title': titles,
+    'link': links,
+    'category': categories,
+    'rating': ratings,
+    'open_hour': open_hours
+})
+</code></pre>
+
+
+            <div class="txt">
+                Another example, where we will be using <a href="https://www.imdb.com/chart/moviemeter" target="_blank"
+                    class="link">https://www.imdb.com/chart/moviemeter</a> webpage to scrape. Right
+                away let’s define a class called “MoviesScraper” which will make the whole process much cleaner:
+            </div>
+
+
+            <pre><code class="language-py">class MoviesScraper():
+    def __init__(self, src_url):
+        self.url = src_url
+        self.fetch_content()
+
+    def fetch_content(self):
+        page = requests.get(self.url)
+        self.response = TextResponse(url=page.url,body=page.text,encoding='utf-8')
+
+    def get_titles(self):
+        return self.response.css("td[class='titleColumn'] a::text").extract()
+
+    def get_pages_urls(self):
+        return self.response.css("td[class='posterColumn'] a::attr('href')").extract()
+
+    def get_df(self):
+        data = {
+                    'Title':  self.get_titles(),
+                    'Page URL': self.get_pages_urls()
+                }
+
+    df = pd.DataFrame(data)
+    return df</code></pre>
+
+
+
+            <div class="txt">
+                First of all we define the “__init__” method where we get the source url which will be requested to
+                scrape and then call the method “fetch_content” which will send a request to the server, get the
+                response and fetch it. We use the following methods to make a single request once the object is
+                instantiated, after which we can scrape any content we want without sending extra requests.
+            </div>
+
+            <div class="txt">
+                So let’s say we want to get the titles of the movies in that webpage, to that ends we create
+                “get_titles” method which calls “self.response” “css” method to target elements by using CSS selectors,
+                after this we call “extract” method to transform the targeted elements into string.
+                To get the first movie’s page url we can use the same technique, but this time using the “extract_first”
+                method inside “get_pages_urls” method, or you can use “extract” again and get the urls of all movies
+                (that’s what we did to build a DataFrame).
+            </div>
+
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: We use “extract” because we expect to get a list of matching
+                elements, when the targeted element is single we can use “extract_first” or as the name says we can use
+                it even when there are multiple matching elements but we need just the first one. This will return the
+                element without putting it into a list.
+            </div>
+
+            <div class="txt">
+                To store this data in a representative form, we define the “get_df” method to get the “pandas”
+                “DataFrame” which will contain the info we scraped.
+            </div>
+
+            <div class="txt">
+                Try to scrape the rest of the information (IMDb Rating, Year of Release etc) from this webpage to feel
+                comfortable with “Scrapy-package”.
+            </div>
+
+
+            <div class="sub-title">Scrapy-framework</div>
+
+            <div class="txt">
+                Framework version of “Scrapy” provides a scalable built in structure for complex projects. One of the
+                key components is “Spider”. “Spider” is a class responsible for defining how to follow the links through
+                a website and extract the information from the pages. The default spiders of Scrapy are as follows:
+            </div>
+
+            <div class="list">
+                <p><span class="label">name</span><span class="value"> - it is the name of your spider.</span></p>
+                <p><span class="label">allowed_domains</span><span class="value"> - it is a list of domains on which the
+                        spider crawls.</span></p>
+                <p><span class="label">start_urls</span><span class="value"> - it is a list of URLs, which will be the
+                        roots for later crawls, where the spider will begin to crawl from.</span></p>
+                <p><span class="label">custom_settings</span><span class="value"> - these are the settings, when running
+                        the spider, will be overridden from project wide configuration.</span></p>
+                <p><span class="label">crawler</span><span class="value"> - it is an attribute that links to a Crawler
+                        object to which the spider instance is bound.</span></p>
+                <p><span class="label">settings</span><span class="value"> - these are the settings for running a
+                        spider.</span></p>
+                <p><span class="label">logger</span><span class="value"> - it is a Python logger used to send log
+                        messages.</span></p>
+                <p><span class="label">parse(response)</span><span class="value"> - this method processes the response
+                        and returns scrapped data following more URLs.</span></p>
+                <p><span class="label">closed(reason)</span><span class="value"> - this method is called when the spider
+                        closes.</span></p>
+            </div>
+
+            <div class="txt">
+                To access “scrapy” from your terminal/cmd use the following instructions for installation
+                <a href="https://docs.scrapy.org/en/latest/intro/install.html" target="_blank"
+                    class="link">https://docs.scrapy.org/en/latest/intro/install.html</a>.
+            </div>
+
+            <div class="txt">
+                To get started with a “scrapy-framework”, we can call the following command in the command line:
+            </div>
+
+            <pre><code class="language-bash">scrapy startproject tutorial</code></pre>
+
+            <div class="txt">
+                This will create a project folder called “tutorial” and a bunch of folders and files in it. There you
+                will see a folder called “spiders” that’s where the “spiders”should be located. We can weather write a
+                spider by hand or we can run a command to give us the basic structure of a spider, like this:
+            </div>
+
+            <pre><code class="language-bash">scrapy genspider menu menu.am</code></pre>
+
+            <div class="txt">
+                This will generate a spider in “spiders” folder for “menu.am” website and will call it “menu”
+            </div>
+
+            <div class="txt">
+                You will see a basic structure of a spider. We can copy and paste the exact code we wrote for “menu.am”
+                before (using scrapy-package) but with little modifications:
+            </div>
+
+            <pre><code class="language-py">def parse(self, response):
+    titles = response.xpath("//a[@class='title']/text()").extract()
+    links = response.xpath("//div[@class='fl list-logo']/a/@href").extract()
+    categories = response.xpath("//span[@class='restType']/text()").extract()
+    ratings = response.xpath("//div[@class='new_rates_block']/text()", default=None).extract()
+    open_hours = response.xpath("//span[@class='new_list_time_block_inner']/text()").extract()
+
+    yield {
+        'title': titles,
+        'link': links,
+        'category': categories,
+        'rating': ratings,
+        'open_hour': open_hours
+    }
+    </code></pre>
+
+
+            <div class="txt">
+                To run this from command line we can use this command, by specifying the spider name:
+            </div>
+
+
+            <pre><code class="language-bash">scrapy crawl menu</code></pre>
+
+            <div class="txt">
+                You will see a bunch of information in the logs, like how much data is transferred, how long each
+                response took and so on. But most importantly you will see the yield dictionary there also.
+                To see only your scraped data and store it in csv(json) format, you can define “custom_settings”
+                property for “MenuSpider” class:
+            </div>
+
+            <pre><code class="language-py">custom_settings = {
+    "FEEDS": {"menu.csv": {"format": "csv"}}
+}
+</code></pre>
+
+
+            <div class="txt">
+                Another way of running a “Spider” is to import “CrawlerProcess” class from scrapy.crawler and run the
+                process with the help of it:
+            </div>
+
+            <pre><code class="language-py">from scrapy.crawler import CrawlerProcess
+
+process = CrawlerProcess()
+process.crawl(MenuSpider)
+process.start()
+</code></pre>
+
+            <div class="txt">
+                This will do the job. The settings can give a big spectrum for modifying process, check out this doc for
+                more <a href="https://docs.scrapy.org/en/latest/topics/settings.html" target="_blank"
+                    class="link">https://docs.scrapy.org/en/latest/topics/settings.html</a>
+            </div>
+
+
+            <div class="sub-title">Pipelines</div>
+
+            <div class="txt">
+                Scrapy “Pipelines” are classes by which we can interact with the process of scraping. In other words we
+                can get modified things during the process. For example, let us modify the “link” attribute that we are
+                scraping by adding the base url at the beginning at every record.
+            </div>
+
+            <div class="note">
+                <span class="note-keyword">Note</span>: You can do that inside of the “parse” method, but to keep things
+                clean and distributed that’s why we will be using a pipeline.
+            </div>
+
+            <div class="txt">
+                In the “pipelines” file you should have a “MenuPipeline” generated, now let’s edit it:
+            </div>
+
+            <pre><code class="language-py">class MenuPipeline:
+    def process_item(self, item, spider):
+        base_url = spider.start_urls[0]
+        item['link'] = [base_url + item_s for item_s in item['link']]
+    
+        return item</code></pre>
+
+
+            <div class="txt">
+                After doing this we need to connect this “pipeline” to the “spider”, we just need to add this key value
+                pair in the “custom_settings” dictionary:
+            </div>
+
+
+            <pre><code class="language-py">'ITEM_PIPELINES': {'menu.pipelines.MenuPipeline': 1}</code></pre>
+
+            <div class="txt">
+                The integer (it can take values from 1 to 1000) value here specifies the priority of the pipeline,
+                because you can attach multiple “pipelines” to a “spider” you need to be sure that the processes run in
+                the order you want.
+            </div>
+
+            <div class="txt">
+                The possibilities of pipelines are huge, for example we can take a screenshot of a url on which the
+                process will be working on, we can insert current data into a DB. For more examples please check out the
+                link:
+            </div>
+
+            <a href="https://docs.scrapy.org/en/latest/topics/item-pipeline.html" target="_blank" class="link">https://docs.scrapy.org/en/latest/topics/item-pipeline.html</a>
+
+            
 
         </div>
     </div>
@@ -53,7 +344,7 @@
     <div class="footer">
         Built by: Tatevik Hakobyan, Seda Markosyan and Hovhannes Tamoyan &#169;
     </div>
-        <script src="assets/js/prism.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </body>
