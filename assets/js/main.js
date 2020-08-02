@@ -18,28 +18,39 @@ $( document ).ready(function() {
     texts = $(".txt")
 
     texts.each(text_id => {
-        elem = $(texts[text_id])
-        let matches = elem.text().match(/“(.*?)”/g);
-        if (matches) {
+        txt = $(texts[text_id])
 
-            matches.forEach((value, i) => {
-                let replicant = "<span class='quote'>"+value+"</span>"
+        let re = /“(.*?)”/
 
-                console.log(replicant)
-                elem.html(elem.html().replace(value, replicant))
-                console.log(value)
-            })
-            // for (let key in matches){
-            //     console.log(key)
-            // }
 
-            // matches.each(match_id => {
-            //     console.log(match_id)
-            // })
-            // matches.each(match_id => {
-            //     console.log(matches[match_id])
-            // })
-            // console.log(match)
+        var txt_modifs = new Array;
+
+
+        function find_matches(corpus) {
+            if ((match = re.exec(corpus)) != null && corpus.length != 0) {
+
+                let start =  match.index
+                let end =  match.index + match[0].length
+    
+    
+                let replicant = "<span class='quote'>"+match[0]+"</span>"
+    
+                let firstPart = corpus.substr(0, start);
+                let lastPart = corpus.substr(end, corpus.length);
+
+
+                txt_modifs.push(firstPart + replicant)
+
+                find_matches(lastPart)
+            }else{
+                txt_modifs.push(corpus)
+            }
         }
+
+        find_matches(txt.html())
+
+
+        txt.html(txt_modifs.join(''))
+
     })
 });
