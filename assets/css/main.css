@@ -322,6 +322,10 @@ pre[class*="language-"]::-webkit-scrollbar-thumb        {
         width: 97%;
     }
 
+    .section .table td {
+        padding: 7px 0;
+    }
+
     .nav-container.responsive
     {
         padding: 12px 0;
