@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $('.nav-item a[href^="' + location.pathname.split("/")[location.pathname.split("/").length - 1] + '"]').parent().addClass('active');
+    $('a.nav-item[href^="' + location.pathname.split("/")[location.pathname.split("/").length - 1] + '"]').addClass('active');
 
 
 
@@ -53,4 +53,14 @@ $( document ).ready(function() {
         txt.html(txt_modifs.join(''))
 
     })
+
 });
+
+function navToggle() {
+    var x = document.getElementById("nav-container");
+    if (x.className === "nav-container") {
+    x.className += " responsive";
+    } else {
+    x.className = "nav-container";
+    }
+}
