@@ -34,13 +34,13 @@
             <div class="title">Selenium</div>
 
             <div class="txt">
-                Now when you are familiar with Scrapy, thus you know how to scrape anything from a static webpage it’s
-                time to get into the world of dynamic pages, where data can be generated with the help of JS events
+                Now when you are familiar with “Scrapy”, thus you know how to scrape anything from a static webpage it’s
+                time to get into the world of dynamic pages, where data can be generated with the help of “JS” “events”
                 (discussed earlier).
             </div>
 
             <div class="txt">
-                Selenium comes into play, it is designed for doing automated actions inside of a browser with the help
+                “Selenium” comes into play, it is designed for doing automated actions inside of a browser with the help
                 of code. You write a piece of code which can open up your browser, navigate to your favorite grocery
                 website and order food for you. How cool is that, huh ?
             </div>
@@ -52,7 +52,7 @@
 
 
             <div class="txt">
-                Hopefully now you have Selenium installed on your machine, so let’s run the following code:
+                Hopefully now you have “Selenium” installed on your machine, so let’s run the following code:
             </div>
 
 
@@ -87,12 +87,12 @@ while current_height != browser.execute_script("return document.body.scrollHeigh
 
 
             <div class="txt">
-                Here we import time and immediately use it. We call the sleep method which just pauses the code and
+                Here we import “time” and immediately use it. We call the sleep method which just pauses the code and
                 waits for the web page to load.
             </div>
 
             <div class="note">
-                <span class="note-keyword">Note</span>: All sleep methods called in our examples are only for the web
+                <span class="note-keyword">Note</span>: All “sleep” methods called in our examples are only for the web
                 page to be loaded, those numbers
                 might need to be adjusted(increase/decrease) to satisfy your needs based on your connection speed.
             </div>
@@ -100,13 +100,13 @@ while current_height != browser.execute_script("return document.body.scrollHeigh
             <div class="txt">
                 After which we define a variable called “current_height” it will hold the height from the top of the
                 page till the end of it (in the beginning it will be 0, cause we are at the top). After which we are
-                scrolling the page by executing JS code and updating the “current_height” value while there is a place
+                scrolling the page by executing “JS” code and updating the “current_height” value while there is a place
                 to scroll.
             </div>
 
             <div class="txt">
-                Now when you have all the elements in the webpage loaded you can scrape them with the help of Scrapy,
-                just like you did before.
+                Now when you have all the elements in the webpage loaded you can scrape them with the help of “Scrapy”,
+                just like you did before, or by using “Selenium” functionality.
             </div>
 
             <div class="txt">
@@ -123,8 +123,8 @@ add_to_bucket.click()</code></pre>
 
 
             <div class="txt">
-                Here we import By module from selenium and then use it inside of find_element function to specify that
-                we want to find an element by XPath (you can select with css and many more). The element that we want
+                Here we import “By” module from “selenium” and then use it inside of “find_element” function to specify that
+                we want to find an element by “XPath” (you can select with css and many more). The element that we want
                 should be an “a” tag which text should contain “Cabbage Salad” text, and we are interested in a button
                 which is in a “div” with class “product-actions” which is sibling to the “a” tag. In the end we click on
                 it. You should notice the bucket size to be increased by one.
@@ -133,8 +133,8 @@ add_to_bucket.click()</code></pre>
             </div>
 
             <div class="txt">
-                I guess you can see that the things we can do with the help of Selenium are innumerable. You can use
-                Selenium for scraping as it was expected. Let’s scrape prices of items we saw earlier, for that try this
+                I guess you can see that the things we can do with the help of “Selenium” are innumerable. You can use
+                “Selenium” for scraping as it was expected. Let’s scrape prices of items we saw earlier, for that try this
                 snippet:
             </div>
 
@@ -147,7 +147,7 @@ for name, price in zip(names, prices):
     name_price_dict[name.text] = price.text</code></pre>
 
             <div class="txt">
-                Here we are using find_elements_by_xpath method, the name says why. This gets the XPath for matching all
+                Here we are using “find_elements_by_xpath” method, the name says why. This gets the “XPath” for matching all
                 desired elements after and then returns a list of elements matching that criterion, which we iterate
                 through and make a simple dict with key-name and value-price pairs.
             </div>

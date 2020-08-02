@@ -84,6 +84,7 @@ a.link:hover {
     margin-top: 0.9em;
     margin-bottom: 0.9em;
     font-size: 15px;
+    color: #00182f;
 }
 
 .section pre[class*="language-"] {
@@ -164,7 +165,7 @@ a.link:hover {
 }
 
 .section .txt .quote {
-    color: #cc0000;
+    color: #33b567;
     font-family: 'Ubuntu';
     font-weight: 00;
     font-weight: 600;
