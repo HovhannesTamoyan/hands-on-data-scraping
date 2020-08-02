@@ -244,6 +244,12 @@ a.link:hover {
     margin: 5px 0 32px;
 }
 
+.section .get-started-note {
+    text-align: center;
+    font-size: 12px;
+    margin: 15px 0 0;
+}
+
 
 *::-moz-selection { 
     background: #2c5b6e;
