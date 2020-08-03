@@ -38,9 +38,9 @@
             <div class="title">CSS</div>
 
             <div class="txt">
-                CSS is the standard language for defining styles on web pages. Although CSS <sup class="ref" src="https://www.tutorialspoint.com/css/index.htm"></sup> is more widely known for its
-                application in HTML documents, it can be used for defining styles for any structured document format.
-                CSS stands for Cascading Style Sheets, it describes how HTML elements are to be displayed on screen,
+                “CSS” is the standard language for defining styles on web pages. Although “CSS” <sup class="ref" src="https://www.tutorialspoint.com/css/index.htm"></sup> is more widely known for its
+                application in “HTML” documents, it can be used for defining styles for any structured document format.
+                “CSS” stands for Cascading Style Sheets, it describes how HTML elements are to be displayed on screen,
                 paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all
                 at once. External stylesheets are stored in CSS files
             </div>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="txt">
-                The style definitions are normally saved in external .css files. Which means that you can change the
+                The style definitions are normally saved in external “.css” files. Which means that you can change the
                 look of an entire website by changing just one file.
             </div>
 
@@ -73,9 +73,9 @@
             <div class="txt">
                 The most common way to add CSS in HTML, is to keep the styles in external CSS files. For making them
                 work together you should use the
-                &lt;link&gt; tag,which we have already mentioned in the HTML section. An external style sheet can be
+                “&lt;link&gt;” tag,which we have already mentioned in the HTML section. An external style sheet can be
                 written
-                in any text editor, and must be saved with a .css extension. The external .css file should not contain
+                in any text editor, and must be saved with a “.css” extension. The external “.css” file should not contain
                 any HTML tags.
             </div>
 
@@ -102,13 +102,13 @@
 
             <div class="txt">
                 The selector points to the HTML element you want to style. The declaration block contains one or more
-                declarations separated by semicolons. Each declaration includes a CSS property name and a value,
+                declarations separated by semicolons. Each declaration includes a CSS property “name” and “value”,
                 separated by a colon. Multiple CSS declarations are separated with semicolons, and declaration blocks
                 are surrounded by curly braces.
             </div>
 
             <div class="txt">
-                Let’s make a practical example: we want all &lt;h1&gt; elements to be center-aligned, with a red text
+                Let’s make a practical example: we want all “&lt;h1&gt;” elements to be “center-aligned”, with a “red” text
                 color.
             </div>
 
@@ -119,17 +119,19 @@
 </code></pre>
 
             <div class="list">
-                <p><span class="value">h1 is a selector in CSS (it points to the HTML element you want to style:
+                <p><span class="value">“h1” is a “selector” in CSS (it points to the HTML element you want to style:
                         &lt;p&gt;.</span></p>
-                <p><span class="value">color is a property, and red is the property value</span></p>
-                <p><span class="value">text-align is a property, and center is the property value</span></p>
+                <p><span class="value">“color” is a property, and “red” is the property value</span></p>
+                <p><span class="value">“text-align” is a property, and “center” is the property value</span></p>
             </div>
 
             <div class="txt">
                 You can apply a style to many selectors if you like. Just separate the selectors with a comma.
             </div>
 
-            <pre><code class="language-css">h1, h2, h3, h4, h5, h6 { color: blue }</code></pre>
+            <pre><code class="language-css">h1, h2, h3, h4, h5, h6 { 
+    color: blue
+}</code></pre>
 
             <div class="txt">
                 But what if you only want some of your headings to be blue? Perhaps you want the color of your headings
@@ -137,10 +139,10 @@
             </div>
 
             <div class="txt">
-                In CSS, classes allow you to apply a style to a given class of an element. To do this, you should link
+                In CSS, classes allow you to apply a style to a given “class” of an element. To do this, you should link
                 the element to the style by declaring a style for the class, then assigning that class to the element.
-                You declare a CSS class by using a dot (.) followed by the class name. You make up the class name
-                yourself. After the class name you simply enter the properties/values that you want to assign to your
+                You declare a CSS class by using a dot “(.)” followed by the class name. You make up the class name
+                yourself. After the class name you simply enter the “properties/values” that you want to assign to your
                 class.
             </div>
 
@@ -154,14 +156,13 @@
             <pre><code class="language-css">p.large { font-size: 2em; }</code></pre>
 
             <div class="txt">
-                Any HTML element can have the id attribute applied to it. The value of this attribute is the element's
-                unique identifier. For example, &lt;h1 id="mainHeading"&gt; gives that element a unique identifier of
-                mainHeading.
+                Any HTML element can have the “id” attribute applied to it. The value of this attribute is the element's
+                unique identifier. For example, "&lt;h1 id="mainHeading"&gt;" gives that element a unique identifier of main heading.
             </div>
 
             <div class="txt">
-                The syntax for declaring a CSS ID is the same as for classes, except that instead of using a dot, you
-                use a hash (#).
+                The syntax for declaring a CSS id is the same as for classes, except that instead of using a dot, you
+                use a hash “(#)”.
             </div>
 
             <pre><code class="language-css">#id-name { property:value; }</code></pre>
@@ -174,17 +175,16 @@
             <pre><code class="language-css">p#intro { font-size: 2em; }</code></pre>
 
             <div class="txt">
-                As the classes and IDs are very similar, so it depends on the situation which one you apply. You should
+                As the “class”es and “id”s are very similar, so it depends on the situation which one you apply. You should
                 use classes when your style needs to be applied multiple times on the same page. For example, you might
-                have many &lt;h1&gt; elements that need the same style applied.You should use IDs if only one element on
+                have many “&lt;h1&gt;” elements that need the same style applied. You should use ids if only one element on
                 the
                 page should have the style applied, and/or you need a unique identifier for that element. For
-                example, you might assign an ID to a &lt;nav&gt; tag which contains your left menu. The styles for this
-                ID
-                could contain the position, background-color, float properties, size etc. You probably wouldn't
-                want any other element on the page to use this particular style. Another useful thing about IDs
-                is that you can use the Document Object Model (DOM) to refer to them. This enables you to use
-                JavaScript/DHTML techniques to build a much more interactive website.
+                example, you might assign an id to a “&lt;nav&gt;” tag which contains your left menu. The styles for this id
+                could contain the “position”, “background-color”, “float”, “size” etc properties. You probably wouldn't
+                want any other element on the page to use this particular style. Another useful thing about ids
+                is that you can use the Document Object Model “(DOM)” to refer to them. This enables you to use
+                “JavaScript/DOM” techniques to build a much more interactive website.
             </div>
 
 
@@ -196,7 +196,7 @@
             </div>
 
             <div class="txt">
-                The following table summarizes main CSS selectors’ syntax:
+                The following table summarizes main CSS “selectors’ syntax”:
             </div>
 
 
@@ -395,7 +395,7 @@
             <div class="sub-title">Other stylings</div>
 
             <div class="txt">Bellow we present some examples of stylings <sup class="ref" src="https://www.bitdegree.org/learn/css-code"></sup>, they are numerous that even
-                experiences developers forget what was the name of a particular attribute.</div>
+                experiences developers forget the name of a particular attribute.</div>
             
             <div class="hint">
                 Try to go throw those properties and play with it, to get familiar. We leave those snippets without comments so you can try and see what happens
@@ -475,7 +475,7 @@
     </div>
 
     <script src="assets/js/prism.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
